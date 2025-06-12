@@ -1,22 +1,62 @@
 import './InputForm.css';
+import '../EmailForm/EmailForm.jsx';
+import {useState} from 'react';
+import EmailForm from '../EmailForm/EmailForm.jsx';
 
 
 const InputForm = () => {
 
+    // const [answer, setAnswer] = useState();
+
+    const [emailVisibility, setEmailVisibility] = useState();
+
+    const [question, setQuestion] = useState();
+
+    const onSubmit = (data) => {
+        data.preventDefault();
+        console.log(question);
+    }
+
+    const emailForm = () => {
+        setEmailVisibility(true);
+    }
+
 
     return (
+
+      
+
         <div className="input-container">
 
             <h3>Ask Question</h3>
 
-            <div className="question-box">
-                <textarea className="question-text"></textarea>
-            </div>
+            <form className="form-layout" onSubmit={onSubmit}>
 
-            <div className="answer-box">
-                <textarea className="answer-text"></textarea>
-            </div>
+                <div className="form-buttons">
+
+                    <button className="form-button" type="submit">Ask</button>
+                    <button className="form-button" onClick={emailForm}>Send</button>
+                    <button className="form-button">Delete</button>
+
+                </div>
+
+                <div className="textbox-areas">
+           
+                    <textarea className="question-text textarea" placeholder='ask question here...' onChange={(e) => {setQuestion(e.target.value)}}></textarea>
+                    
+                    <textarea className="answer-text textarea"></textarea>
+          
+                </div>
+
+            </form>
+
+            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility}></EmailForm>}
+
         </div>
+
+        
+        
+        
     );
 
 
