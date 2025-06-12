@@ -36,3 +36,10 @@
     }
 }
 
+@media only screen and (max-width: 453px) {
+    .nav-bar {
+        flex-direction: column;
+        height: auto;
+    }
+}
+
