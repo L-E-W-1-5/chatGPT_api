@@ -1,0 +1,37 @@
+.nav-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    height: 6vh;
+    background-color: blue;
+    top: 0%;
+    border: 1px solid white;
+}
+
+.main-title {
+    margin: 5px 0 0 44%;
+    align-items: center;
+}
+
+.clock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 3% 0 0;
+    padding-right: 1%;
+    height: 100%;
+    width: 100%;
+    gap: 3%;
+    width: auto;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 800px) {
+    .main-title{
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 5px 0 0 auto;
+    }
+}
+
