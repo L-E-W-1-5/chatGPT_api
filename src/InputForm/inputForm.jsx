@@ -6,7 +6,7 @@ import EmailForm from '../EmailForm/EmailForm.jsx';
 
 const InputForm = () => {
 
-    // const [answer, setAnswer] = useState();
+    const [answer, setAnswer] = useState();
 
     const [emailVisibility, setEmailVisibility] = useState();
 
@@ -15,10 +15,17 @@ const InputForm = () => {
     const onSubmit = (data) => {
         data.preventDefault();
         console.log(question);
+
+        setAnswer("not working yet, but it will ;)")
     }
 
     const emailForm = () => {
         setEmailVisibility(true);
+    }
+
+    const clearForm = () => {
+        setAnswer("");
+        setQuestion("");
     }
 
 
@@ -35,16 +42,16 @@ const InputForm = () => {
                 <div className="form-buttons">
 
                     <button className="form-button" type="submit">Ask</button>
-                    <button className="form-button" onClick={emailForm}>Send</button>
-                    <button className="form-button">Delete</button>
+                    <button className="form-button" type="button" onClick={emailForm}>Send</button>
+                    <button className="form-button" type="button" onClick={clearForm}>Delete</button>
 
                 </div>
 
                 <div className="textbox-areas">
            
-                    <textarea className="question-text textarea" placeholder='ask question here...' onChange={(e) => {setQuestion(e.target.value)}}></textarea>
+                    <textarea className="question-text textarea" placeholder='ask question here...' value={question} onChange={(e) => {setQuestion(e.target.value)}}></textarea>
                     
-                    <textarea className="answer-text textarea"></textarea>
+                    <textarea className="answer-text textarea" value={answer}></textarea>
           
                 </div>
 

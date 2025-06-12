@@ -58,7 +58,7 @@
     background-color: blue;
     color: white;
     box-shadow: 3px 4px 1px 0 rgba(0,0,0,0.2);
-    
+    min-width: 48px;
 }
 
 .textarea {
