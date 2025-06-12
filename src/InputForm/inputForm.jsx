@@ -1,4 +1,4 @@
-
+import './InputForm.css';
 
 
 const InputForm = () => {

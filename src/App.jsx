@@ -1,4 +1,5 @@
 import Header from './Header/Header.jsx'
+import InputForm from './InputForm/inputForm.jsx';
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="main-container">
 
       <Header></Header>
+      <InputForm></InputForm>
 
     </div>
 

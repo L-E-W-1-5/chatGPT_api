@@ -1,0 +1,12 @@
+.input-container {
+    width: 30%;
+    margin: 5% auto auto auto;
+    height: 60vh;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    
+}
