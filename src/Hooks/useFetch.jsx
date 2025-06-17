@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const url = 'http://localhost:3000'
 
 
-export const useFetch = () => {
+const useFetch = () => {
                     // props will be the question sent with each fetch request
 
     const [answer, setAnswer] = useState();
@@ -38,16 +38,18 @@ export const useFetch = () => {
 
     }
 
-    handleFetch();
+    if (question) handleFetch();
         
     }, [question] )
 
 
 
     return {
-        answer,
-        setQuestion
+        answer: answer,
+        setAnswer: setAnswer,
+        setQuestion: setQuestion
     };
 
 }
 
+//export default useFetch;
