@@ -9,23 +9,18 @@ const InputForm = () => {
 
     const { answer, setAnswer, setQuestion } = UseFetch();
 
-    //const [answer1, setAnswer1] = useState();
-
     const [emailVisibility, setEmailVisibility] = useState();
 
     const [question1, setQuestion1] = useState();
+
+    
 
     const onSubmit = (data) => {
 
         data.preventDefault();
 
-        console.log(question1); //TODO: create function to fetch from backend. 
-        if (answer) console.log(answer);
-
         setQuestion(question1);
 
-        //setAnswer(answer);
-        //setAnswer("not working yet, but it will ;)")
     }
 
     const emailForm = () => {

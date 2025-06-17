@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const url = 'http://localhost:3000'
+const url = 'https://chatgpt-backend-6uyd.onrender.com'
 
 
 export function UseFetch ()  {
@@ -35,28 +35,7 @@ export function UseFetch ()  {
 
             .catch((err) => console.log(err));
 
-           // if (answer) console.log(answer);
-
         }
-
-        /*const handleFetch = async() => {
-        
-        const res = await fetch(`${url}`, {
-
-            method: "POST",
-
-            headers: { "Content-Type": "application/json" },
-
-            body: JSON.stringify({"question": question})
-        })
-        let answer1 = await res.json();
-        console.log(answer1)
-        setAnswer(answer1)
-        setQuestion("");
-    }*/
-
-
-if (question) console.log(question);
 
 
     if (question != "") handleFetch();
