@@ -1,35 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const url = 'http://localhost:3000'
 
 
-const useFetch = (props) => {
+export const useFetch = () => {
                     // props will be the question sent with each fetch request
 
     const [answer, setAnswer] = useState();
 
+    const [question, setQuestion] = useState();
 
-    const handleFetch = async () => {
 
-        const res = await fetch(url, {
+  
+
+    useEffect((answer) => {
+
+        const handleFetch = async () => {
+
+        await fetch(url, {
+
             method: "POST",
 
-            headers: {"Content-Type"},
+            headers: {"Content-Type": "application/json"},
 
-            body: JSON.stringify({"question": props.question})
-        });
+            body: JSON.stringify({"question": question})
+        })
 
-        const reply = await res.json();
+        .then(reply => reply.json())
 
-        console.log(reply);
+        .then(answer => setAnswer(answer));
 
-        setAnswer(reply);
+        console.log(answer);
+
+       // const reply = await res.json();
+
+       // setAnswer(reply);
 
     }
 
-    return answer;
+    handleFetch();
+        
+    }, [question] )
 
+
+
+    return {
+        answer,
+        setQuestion
+    };
 
 }
 
-export default useFetch;

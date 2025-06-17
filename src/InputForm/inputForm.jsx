@@ -2,21 +2,26 @@ import './InputForm.css';
 import '../EmailForm/EmailForm.jsx';
 import {useState} from 'react';
 import EmailForm from '../EmailForm/EmailForm.jsx';
+import useFetch from '../Fetch/Fetch.jsx';
 
 
 const InputForm = () => {
 
-    const [answer, setAnswer] = useState();
+    const [answer, setQuestion] = useFetch();
+
+    const [answer1, setAnswer1] = useState();
 
     const [emailVisibility, setEmailVisibility] = useState();
 
-    const [question, setQuestion] = useState();
+    const [question1, setQuestion1] = useState();
 
     const onSubmit = (data) => {
         data.preventDefault();
-        console.log(question); //TODO: create function to fetch from backend. 
+        console.log(question1); //TODO: create function to fetch from backend. 
 
-        setAnswer("not working yet, but it will ;)")
+        setQuestion(question1);
+        setAnswer1(answer);
+        //setAnswer("not working yet, but it will ;)")
     }
 
     const emailForm = () => {
@@ -24,8 +29,8 @@ const InputForm = () => {
     }
 
     const clearForm = () => {
-        setAnswer("");
-        setQuestion("");
+        setAnswer1("");
+        setQuestion1("");
     }
 
 
@@ -49,9 +54,9 @@ const InputForm = () => {
 
                 <div className="textbox-areas">
            
-                    <textarea className="question-text textarea" placeholder='ask question here...' value={question} onChange={(e) => {setQuestion(e.target.value)}}></textarea>
+                    <textarea className="question-text textarea" placeholder='ask question here...' value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
-                    <textarea className="answer-text textarea" value={answer}></textarea>
+                    <textarea className="answer-text textarea" value={answer1}></textarea>
           
                 </div>
 
