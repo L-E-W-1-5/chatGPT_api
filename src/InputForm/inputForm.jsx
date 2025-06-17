@@ -14,7 +14,7 @@ const InputForm = () => {
 
     const onSubmit = (data) => {
         data.preventDefault();
-        console.log(question);
+        console.log(question); //TODO: create function to fetch from backend. 
 
         setAnswer("not working yet, but it will ;)")
     }
