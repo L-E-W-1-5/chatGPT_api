@@ -1,5 +1,6 @@
 import Header from './Header/Header.jsx'
-import InputForm from './InputForm/InputForm.jsx';
+import InputForm from './InputForm/inputForm.jsx';
+
 import './App.css';
 
 function App() {

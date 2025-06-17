@@ -2,12 +2,12 @@ import './InputForm.css';
 import '../EmailForm/EmailForm.jsx';
 import {useState} from 'react';
 import EmailForm from '../EmailForm/EmailForm.jsx';
-import {useFetch} from '../Hooks/useFetch.jsx';
+import {UseFetch} from '../Hooks/useFetch.jsx';
 
 
 const InputForm = () => {
 
-    const { answer, setAnswer, setQuestion } = useFetch();
+    const { answer, setAnswer, setQuestion } = UseFetch();
 
     //const [answer1, setAnswer1] = useState();
 
@@ -20,7 +20,7 @@ const InputForm = () => {
         data.preventDefault();
 
         console.log(question1); //TODO: create function to fetch from backend. 
-        console.log(answer);
+        if (answer) console.log(answer);
 
         setQuestion(question1);
 
