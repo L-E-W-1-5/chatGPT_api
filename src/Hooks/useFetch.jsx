@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 
 const url = 'https://chatgpt-backend-6uyd.onrender.com'
 
+//const url = 'http://localhost:3000';
+
 
 export function UseFetch ()  {
                     // props will be the question sent with each fetch request
@@ -39,6 +41,8 @@ export function UseFetch ()  {
 
 
     if (question != "") handleFetch();
+
+   
         
     }, [question] )
 

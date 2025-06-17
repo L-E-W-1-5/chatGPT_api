@@ -13,7 +13,7 @@ const InputForm = () => {
 
     const [question1, setQuestion1] = useState();
 
-    
+
 
     const onSubmit = (data) => {
 
@@ -28,6 +28,8 @@ const InputForm = () => {
     }
 
     const clearForm = () => {
+
+        console.log(answer.count)
         setAnswer("");
         setQuestion1("");
     }
@@ -55,7 +57,8 @@ const InputForm = () => {
            
                     <textarea className="question-text textarea" placeholder='ask question here...' value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
-                    <textarea className="answer-text textarea" value={answer}></textarea>
+
+                    <textarea className="answer-text textarea" value={answer ? `Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!` : "answer will appear here.."}></textarea>
           
                 </div>
 
