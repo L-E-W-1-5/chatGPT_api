@@ -58,13 +58,13 @@ const InputForm = () => {
                     <textarea className="question-text textarea" placeholder='ask question here...' value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
 
-                    <textarea className="answer-text textarea" value={answer ? `Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!` : "answer will appear here.."}></textarea>
+                    <textarea className="answer-text textarea" readOnly value={answer ? `Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!` : "answer will appear here.."}></textarea>
           
                 </div>
 
             </form>
 
-            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility}></EmailForm>}
+            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer.question}></EmailForm>}
 
         </div>
 

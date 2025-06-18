@@ -2,7 +2,7 @@
     position: fixed;
     width: 50%;
     margin-top: 0px;
-    height: 60vh;
+    height: 70vh;
     background-color: blue;
     display: flex;
     flex-direction: column;
@@ -17,4 +17,48 @@
 .email-form {
     display: flex;
     flex-direction: column;
+    width: 90%;
+    height: 90%;
+    gap: 15px;
+}
+
+.email-form-item {
+    display: flex;  
+}
+
+.email-label {
+    text-wrap: nowrap;
+    width: 20%;
+    padding-left: 5%;
+    
+}
+
+.email-input {
+    font-size: 1.2rem;
+    width: 80%;
+    align-self: flex-end;
+}
+
+.email-textarea {
+    width: 100%;
+    height: 70%;
+    align-self: flex-end;
+}
+
+.email-form-buttons {
+    width: 70%;
+    height: 15%;
+    padding: 10px;
+    align-self: center;
+    display: flex;
+    gap: 30px;
+}
+
+.email-form-button {
+    width: 30%;
+}
+
+.email-form-close {
+    padding: 10px;
+    margin-bottom: 20px;
 }

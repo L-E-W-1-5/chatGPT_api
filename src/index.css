@@ -3,3 +3,7 @@ body {
   margin: 0;
   overflow-y: hidden;
 }
+
+.textarea {
+    resize: none;
+}
