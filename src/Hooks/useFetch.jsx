@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-//const url = 'https://chatgpt-backend-6uyd.onrender.com'
+const url = 'https://chatgpt-backend-6uyd.onrender.com'
 
-const url = 'http://localhost:3000';
+//const url = 'http://localhost:3000';
 
 
 export function UseFetch ()  {
