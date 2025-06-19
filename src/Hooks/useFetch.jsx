@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-//const url = 'https://chatgpt-backend-6uyd.onrender.com'
+const url = 'https://chatgpt-backend-6uyd.onrender.com'     //TODO: dont forget to keep changing this for dev.
 
-const url = 'http://localhost:3000';
+//const url = 'http://localhost:3000';
 
 
 export function UseFetch ()  {
@@ -21,20 +21,20 @@ export function UseFetch ()  {
 
         const handleFetch = async () => {
 
-            await fetch(`${url}`, { ///api
+            await fetch(`${url}/api`, { ///api
 
                 method: "POST",
 
                 headers: { "Content-Type": "application/json" },
 
-                body: JSON.stringify({
-                    "content": [
-                        {
-                            "question":question
-                        },
-                        {
-                            "id": "answer"
-                        }]
+                body: JSON.stringify({ "question": question
+                    // "content": [
+                    //     {
+                    //         "question":question
+                    //     },
+                    //     {
+                    //         "id": "answer"
+                    //     }]
                     // "previous_id": answer.response_id
                 })
         
