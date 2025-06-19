@@ -19,7 +19,7 @@ const InputForm = () => {
 
         data.preventDefault();
 
-        setQuestion(question1);
+        setQuestion(question1);     //TODO: Try adding the previous id here rather than in the fetch request.
 
     }
 
@@ -29,7 +29,7 @@ const InputForm = () => {
 
     const clearForm = () => {
 
-        console.log(answer.count)
+        console.log(answer.payload)
         setAnswer("");
         setQuestion1("");
     }
@@ -58,7 +58,7 @@ const InputForm = () => {
                     <textarea className="question-text textarea" placeholder='ask question here...' value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
 
-                    <textarea className="answer-text textarea" readOnly value={answer ? `Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!` : "answer will appear here.."}></textarea>
+                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>
           
                 </div>
 
@@ -77,3 +77,6 @@ const InputForm = () => {
 }
 
 export default InputForm;
+
+
+//`Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!`

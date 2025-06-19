@@ -2,8 +2,6 @@ body {
   background-color: #242424;
   margin: 0;
   overflow-y: hidden;
+  width: 100vw;
 }
 
-.textarea {
-    resize: none;
-}

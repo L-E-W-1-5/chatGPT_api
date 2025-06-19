@@ -1,5 +1,5 @@
 .input-container {
-    width: 40%;
+    width: 60%;
     margin: 5% auto auto auto;
     height: 60vh;
     background-color: blue;
@@ -43,11 +43,14 @@
 .question-text {
     height: 40%; 
     margin: 3%;
+    border-radius: 10px;
 }
 
 .answer-text {
     height: 40%; 
     margin: 3%;
+    border-radius: 10px;
+    overflow-y: auto;
 }
 
 .form-button {

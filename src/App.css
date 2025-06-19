@@ -2,3 +2,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.textarea {
+    resize: none;
+    background-color: rgba(0, 9, 175, 0.714)!important;
+    color: white;
+}
+

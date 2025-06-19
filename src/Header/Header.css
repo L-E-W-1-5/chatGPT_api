@@ -44,10 +44,21 @@
         height: auto;
         justify-content: center;
         align-items: center;
+        width: 100vw;
     }
 
     .main-title {
         margin: auto;
+    }
+}
+
+@media only screen and (max-width: 249px) {
+    .clock {
+        white-space: wrap;
+    }
+
+     .main-title {
+        white-space: wrap;
     }
 }
 
