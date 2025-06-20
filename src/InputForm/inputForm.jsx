@@ -94,7 +94,7 @@ const InputForm = () => {
 
             </form>
 
-            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer.payload}></EmailForm>}
+            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer.payload ? answer.payload : ""}></EmailForm>}
 
         </div>
 
