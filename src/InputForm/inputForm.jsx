@@ -52,8 +52,15 @@ const InputForm = () => {
 
         console.log(answer.payload)
 
-        const updatedObject = answer.filter(prop => prop.payload != "")
-        setAnswer(updatedObject);
+        //const updatedObject = answer.filter(prop => prop.payload != "")
+
+        //const newAnswer = {payload, ...answer};
+        setAnswer({
+            "payload": "",
+            "success": answer.success,
+            "response_id": answer.response_id
+        });
+        
         setQuestion1("");
     }
 
