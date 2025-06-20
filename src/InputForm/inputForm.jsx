@@ -51,7 +51,9 @@ const InputForm = () => {
     const clearForm = () => {
 
         console.log(answer.payload)
-        setAnswer("");
+
+        const updatedObject = answer.filter(prop => prop.payload != "")
+        setAnswer(updatedObject);
         setQuestion1("");
     }
 
