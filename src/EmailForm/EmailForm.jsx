@@ -23,7 +23,7 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     const sendMail = (event) => {
 
-        event.preventDefault();     //TODO: Create the fetch to send mail.
+        event.preventDefault();     
         console.log(inputs);
 
         handleEmailSend();
@@ -31,7 +31,6 @@ const EmailForm = ({emailVisibility, answer}) => {
 
 
     const handleEmailSend = async () => {
-
 
         const res = await fetch(`${url}/email`, {
 

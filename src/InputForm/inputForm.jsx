@@ -19,12 +19,33 @@ const InputForm = () => {
 
         data.preventDefault();
 
-        setQuestion(question1);     //TODO: Try adding the previous id here rather than in the fetch request.
+        console.log(answer);
+
+        fetchResources();
+
+    }
+
+    const fetchResources = () => {
+
+        setQuestion(answer ? {
+
+            "question": question1,
+            "previous_id": answer.response_id
+
+        } : {
+
+            "question": question1,
+            "previous_id": null
+        });  
 
     }
 
     const emailForm = () => {
         setEmailVisibility(true);
+    }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') fetchResources();
     }
 
     const clearForm = () => {
@@ -55,7 +76,7 @@ const InputForm = () => {
 
                 <div className="textbox-areas">
            
-                    <textarea className="question-text textarea" placeholder='ask question here...' value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
+                    <textarea className="question-text textarea" placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
 
                     <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>

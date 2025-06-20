@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 
-const url = 'https://chatgpt-backend-6uyd.onrender.com'     //TODO: dont forget to keep changing this for dev.
 
+//Production
+const url = 'https://chatgpt-backend-6uyd.onrender.com'     
+
+//TODO: dont forget to keep changing this for dev.
+
+//Dev
 //const url = 'http://localhost:3000';
 
 
 export function UseFetch ()  {
-                    // props will be the question sent with each fetch request
+                  
 
     const [answer, setAnswer] = useState();
 
-    const [question, setQuestion] = useState("");
-
-    //const [previousId, setPreviousId] = useState("");
+    const [question, setQuestion] = useState({});
 
 
   
@@ -27,16 +30,7 @@ export function UseFetch ()  {
 
                 headers: { "Content-Type": "application/json" },
 
-                body: JSON.stringify({ "question": question
-                    // "content": [
-                    //     {
-                    //         "question":question
-                    //     },
-                    //     {
-                    //         "id": "answer"
-                    //     }]
-                    // "previous_id": answer.response_id
-                })
+                body: JSON.stringify({ "data": question })
         
             })
 
@@ -50,8 +44,8 @@ export function UseFetch ()  {
 
         }
 
-
-    if (question != "") handleFetch();
+console.log(question);
+    if (question.question) handleFetch();
 
    
         
@@ -66,5 +60,3 @@ export function UseFetch ()  {
     };
 
 }
-
-//export default useFetch;
