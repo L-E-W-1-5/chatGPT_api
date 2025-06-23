@@ -6,6 +6,8 @@ import {useState} from 'react';
 //Production
 const url = 'https://chatgpt-backend-6uyd.onrender.com' 
 
+//TODO: change from dev to prod
+
 //Dev
 //const url = "http://localhost:3000";
 

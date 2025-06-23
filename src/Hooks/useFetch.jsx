@@ -22,7 +22,7 @@ export function UseFetch ()  {
 
     useEffect((answer) => {
 
-        const handleFetch = async () => {
+        const handleFetch = async () => {   //TODO: change to /api for production
 
             await fetch(`${url}/api`, { ///api
 
