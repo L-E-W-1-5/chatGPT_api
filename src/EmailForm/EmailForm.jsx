@@ -1,7 +1,13 @@
 import './EmailForm.css';
 import {useState} from 'react';
 
-const url = "http://localhost:3000";
+
+
+//Production
+const url = 'https://chatgpt-backend-6uyd.onrender.com' 
+
+//Dev
+//const url = "http://localhost:3000";
 
 
 
@@ -44,6 +50,8 @@ const EmailForm = ({emailVisibility, answer}) => {
 
         .then(res => res.json())
 
+        .then(res => res.success === false ? alert(res.payload) : alert("Email Sent!"))
+
         .then(res => console.log(res))
 
         .catch(err => console.log(err))
@@ -55,7 +63,12 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     const pasteAnswer = () => {
 
+        console.log(answer)
+
+        if(answer){
+
         setInputs(values => ({...values, ["text"]: `${inputs["text"] ? inputs["text"] : ""}${answer}`}));
+        };
     }
 
 
@@ -75,7 +88,7 @@ const EmailForm = ({emailVisibility, answer}) => {
 
                 <div className="email-form-item">
                 <label className="email-label">To:</label>
-                    <input className="email-input" type="text" name="recipient" placeholder='enter recipient email address here..' value={inputs["recipient"] ? inputs["recipient"] : ""} onChange={handleChange}></input>
+                    <input className="email-input" type="text" name="recipient" placeholder='enter recipient email address here' value={inputs["recipient"] ? inputs["recipient"] : ""} onChange={handleChange}></input>
                 </div>
 
                 <div className="email-form-item">
@@ -88,14 +101,14 @@ const EmailForm = ({emailVisibility, answer}) => {
                 
 
                 <div className="email-form-buttons">
-                    <button className="email-form-button" onClick={pasteAnswer}>Paste Answer</button>
-                    <button className="email-form-button" type="submit">Send</button>
-                    <button className="email-form-button" onClick={clearFields}>Clear</button>
+                    <button className="email-form-button button-style" type="button" onClick={pasteAnswer}>Paste Answer</button>
+                    <button className="email-form-button button-style" type="submit">Send</button>
+                    <button className="email-form-button button-style" type="button" onClick={clearFields}>Clear</button>
                 </div>
 
             </form>
 
-            <button className="email-form-close" onClick={() => {emailVisibility(false)}}>Close</button>
+            <button className="email-form-close button-style" onClick={() => {emailVisibility(false)}}>Close</button>
 
         </div>
     )

@@ -1,7 +1,7 @@
 .input-container {
     width: 60%;
     margin: 5% auto auto auto;
-    height: 60vh;
+    height: 70vh;
     background-color: blue;
     display: flex;
     flex-direction: column;
@@ -56,6 +56,9 @@
 .form-button {
     height: 10%;
     width: 50%;
+}
+
+.button-style {
     border: 2px solid white;
     border-radius: 5px;
     background-color: blue;
@@ -64,3 +67,51 @@
     min-width: 48px;
 }
 
+@media only screen and (max-width: 453px) {
+    .input-container{
+        width: 99%;
+        height:100%;
+        margin-top: 100px;
+    }
+
+    /* .form-layout {
+        margin-top: 0%;
+        height: 100%;
+    } */
+
+    .form-buttons {
+        position: absolute;
+        flex-direction: row;
+        width: 90%;
+        align-items: flex-start;
+        top: 16%;
+        height:10%;
+    }
+
+    .form-button {
+        height: 50%;
+    }
+
+    /* .main-container {
+        overflow-y:auto;
+    } */
+
+    .nav-bar {
+        position: fixed;
+    }
+
+    .textbox-areas {
+        width: 98%;
+        height: 100%;
+        margin-bottom: 10%;
+        justify-content: center;
+    }
+
+    .question-text {
+        height: 22%;
+    }
+
+    .answer-text {
+        height: 75%;
+    }
+}

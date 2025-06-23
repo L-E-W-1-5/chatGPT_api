@@ -7,7 +7,7 @@ import {UseFetch} from '../Hooks/useFetch.jsx';
 
 const InputForm = () => {
 
-    const { answer, setAnswer, setQuestion } = UseFetch();
+    const { answer, setAnswer, setQuestion } = UseFetch({});
 
     const [emailVisibility, setEmailVisibility] = useState();
 
@@ -60,7 +60,7 @@ const InputForm = () => {
             "success": answer.success,
             "response_id": answer.response_id
         });
-        
+
         setQuestion1("");
     }
 
@@ -77,24 +77,23 @@ const InputForm = () => {
 
                 <div className="form-buttons">
 
-                    <button className="form-button" type="submit">Ask</button>
-                    <button className="form-button" type="button" onClick={emailForm}>Send</button>
-                    <button className="form-button" type="button" onClick={clearForm}>Delete</button>
+                    <button className="form-button button-style" type="submit">Ask</button>
+                    <button className="form-button button-style" type="button" onClick={emailForm}>Send</button>
+                    <button className="form-button button-style" type="button" onClick={clearForm}>Delete</button>
 
                 </div>
 
                 <div className="textbox-areas">
+
+                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>
            
                     <textarea className="question-text textarea" placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
-
-                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>
-          
                 </div>
 
             </form>
 
-            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer.question}></EmailForm>}
+            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer ? answer.payload : {}}></EmailForm>}
 
         </div>
 
