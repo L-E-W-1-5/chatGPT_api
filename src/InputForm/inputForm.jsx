@@ -1,6 +1,6 @@
 import './InputForm.css';
 import '../EmailForm/EmailForm.jsx';
-import {useState} from 'react';
+import {useState} from 'react'; //, useRef, useEffect
 import EmailForm from '../EmailForm/EmailForm.jsx';
 import {UseFetch} from '../Hooks/useFetch.jsx';
 
@@ -13,6 +13,17 @@ const InputForm = () => {
 
     const [question1, setQuestion1] = useState();
 
+    //const answerboxRef = useRef(null)
+
+
+    // useEffect(() => {
+    //     if(answerboxRef.current) {
+    //          console.log(answerboxRef.current)
+    //         answerboxRef.current.scrollTop = answerboxRef.current.scrollHeight;
+    //         console.log(answerboxRef.current.scrollTop)
+    //     }
+    // }, [answer])
+
 
 
     const onSubmit = (data) => {
@@ -21,7 +32,14 @@ const InputForm = () => {
 
         console.log(answer);
 
+        if(question1){
+
         fetchResources();
+
+        }else{
+
+            alert("No Question Asked")
+        }
 
     }
 
@@ -40,21 +58,21 @@ const InputForm = () => {
 
     }
 
+
     const emailForm = () => {
         setEmailVisibility(true);
     }
+
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') fetchResources();
     }
 
+
     const clearForm = () => {
 
         console.log(answer.payload)
 
-        //const updatedObject = answer.filter(prop => prop.payload != "")
-
-        //const newAnswer = {payload, ...answer};
         setAnswer({
             "payload": "",
             "success": answer.success,
@@ -65,13 +83,34 @@ const InputForm = () => {
     }
 
 
+    // const handleTextScroll = () => {
+
+    //    // const scrollText = document.getElementsByClassName('answer-text');
+
+    //     // console.log(scrollText[0].scrollHeight)
+    //     // console.log(scrollText.scrollTop, scrollText[0].scrollHeight)
+
+    //     // scrollText.scrollTop = scrollText[0].scrollHeight;
+
+    //     // console.log(scrollText.scrollTop, scrollText[0].scrollHeight)
+
+    //     console.log(answerboxRef.current.scrollTop, answerboxRef.current.scrollHeight)
+
+    //    // answerboxRef.current.scrollTop = answerboxRef.current.scrollHeight;
+
+    //    answerboxRef.current.scrollTop = 100;
+
+    //     console.log(answerboxRef.current.scrollTop)
+    // }
+
+
     return (
 
       
 
         <div className="input-container">
 
-            <h3>Ask Question</h3>
+            {/* <h3>Ask Question</h3> */}
 
             <form className="form-layout" onSubmit={onSubmit}>
 
@@ -79,13 +118,17 @@ const InputForm = () => {
 
                     <button className="form-button button-style" type="submit">Ask</button>
                     <button className="form-button button-style" type="button" onClick={emailForm}>Send</button>
-                    <button className="form-button button-style" type="button" onClick={clearForm}>Delete</button>
+                    <button className="form-button button-style" type="button" onClick={clearForm}>Clear</button>
+                    {/* <button className="form-button button-style" type="button" onClick={handleTextScroll}>move</button> */}
 
                 </div>
 
                 <div className="textbox-areas">
 
-                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>
+                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea> 
+                        
+                       
+                    
            
                     <textarea className="question-text textarea" placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
@@ -106,6 +149,8 @@ const InputForm = () => {
 }
 
 export default InputForm;
+
+//onChange={handleTextScroll}
 
 
 //`Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!`

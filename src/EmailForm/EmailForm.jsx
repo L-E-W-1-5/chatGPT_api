@@ -90,7 +90,7 @@ const EmailForm = ({emailVisibility, answer}) => {
 
                 <div className="email-form-item">
                 <label className="email-label">To:</label>
-                    <input className="email-input" type="text" name="recipient" placeholder='enter recipient email address here' value={inputs["recipient"] ? inputs["recipient"] : ""} onChange={handleChange}></input>
+                    <input className="email-input" type="text" name="recipient" placeholder='email address of recipient' value={inputs["recipient"] ? inputs["recipient"] : ""} onChange={handleChange}></input>
                 </div>
 
                 <div className="email-form-item">
