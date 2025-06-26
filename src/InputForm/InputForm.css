@@ -91,6 +91,15 @@
     overflow-y: auto;
 }
 
+.loading-container {
+    z-index: 102;
+    position: fixed;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    /* background-color: rgba(164, 164, 164, 0.319); */
+}
+
 
 @media only screen and (max-width: 800px){
     .input-container{

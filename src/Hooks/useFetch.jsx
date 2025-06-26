@@ -15,41 +15,59 @@ export function UseFetch ()  {
     const [answer, setAnswer] = useState();
 
     const [question, setQuestion] = useState({});
+
+    const [loading, setLoading] = useState(false);
   
 
     useEffect((answer) => {
 
+
         const handleFetch = async () => {   //TODO: change to /api for production
 
-            await fetch(`${url}/api`, { ///api
+            setLoading(true);
 
-                method: "POST",
+            try{
+                await fetch(`${url}/api`, { ///api
 
-                headers: { "Content-Type": "application/json" },
+                    method: "POST",
 
-                body: JSON.stringify({ "data": question })
+                    headers: { "Content-Type": "application/json" },
+
+                    body: JSON.stringify({ "data": question })
         
-            })
+                })
 
-            .then(reply => reply.json())
+                .then(reply => reply.json())
 
-            .then(answer => setAnswer(answer))
+                .then(answer => setAnswer(answer))
 
-            .then(console.log(answer))
+                .then(console.log(answer))
 
-            .catch((err) => console.log(err));
+                .catch((err) => console.log(err));
+
+            }catch (err){
+
+                alert('error fetching request');
+                console.log(err);
+                
+            }finally {
+                setLoading(false);
+            }
+
+            
         }
-
+    
     if (question.question) handleFetch();
         
     }, [question] )
 
 
     return {
-        
+
         answer: answer,
         setAnswer: setAnswer,
-        setQuestion: setQuestion
+        setQuestion: setQuestion,
+        loading: loading
     };
 
 }

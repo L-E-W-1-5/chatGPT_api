@@ -3,11 +3,12 @@ import '../EmailForm/EmailForm.jsx';
 import {useState} from 'react'; //, useRef, useEffect
 import EmailForm from '../EmailForm/EmailForm.jsx';
 import {UseFetch} from '../Hooks/useFetch.jsx';
+import { LoadingDots } from '../LoadingDots/LoadingDots.jsx';
 
 
 const InputForm = () => {
 
-    const { answer, setAnswer, setQuestion } = UseFetch({});
+    const { answer, setAnswer, setQuestion, loading } = UseFetch({}); 
 
     const [emailVisibility, setEmailVisibility] = useState();
 
@@ -111,15 +112,20 @@ const InputForm = () => {
 
         <div className="input-container">
 
-            {/* <h3>Ask Question</h3> */}
+           {loading &&
+                <div className="loading-container">
+                    <LoadingDots></LoadingDots>
+                </div>
+           }
+                
 
             <form className="form-layout" onSubmit={onSubmit}>
 
                 <div className="form-buttons">
 
-                    <button className="form-button button-style" type="submit">Ask</button>
-                    <button className="form-button button-style" type="button" onClick={emailForm}>Send</button>
-                    <button className="form-button button-style" type="button" onClick={clearForm}>Clear</button>
+                    <button className="form-button button-style" disabled={loading} type="submit">Ask</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={emailForm}>Send</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>Clear</button>
 
                 </div>
 
