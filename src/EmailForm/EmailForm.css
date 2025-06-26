@@ -1,8 +1,7 @@
 .email-container {
     position: absolute;
-    width: 50%;
-    margin-top: 5px;
-    height: 70vh;
+    width: 110%;
+    height: 100%;
     background-image: url(../assets/background_feather.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -11,7 +10,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    min-width: 200px;
+    /* min-width: 290px; */
     border-radius: 20px;
     border: 2px solid  rgb(0, 0, 244);
     color: rgb(0, 0, 244);
@@ -62,17 +61,46 @@
 }
 
 .email-form-close {
-    padding: 10px;
+    /* padding: 10px; */
     margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 453px) {
-    .email-container{
-        width: 100%;
-        height: 80%;
+    .email-form-buttons {
+       
+        gap: 10px;
     }
 
     .email-textarea {
         width: 98%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+     .email-container{
+       
+        
+        font-size: 0.8rem; 
+        gap: 5px;
+       
+    }
+
+    .email-input{
+        font-size: 0.8rem;
+    }
+}
+
+
+@media only screen and (max-height: 450px) {
+    .email-container{
+       
+        margin: auto;
+        font-size: 0.8rem; 
+        gap: 5px;
+       
+    }
+
+    .email-input{
+        font-size: 0.8rem;
     }
 }

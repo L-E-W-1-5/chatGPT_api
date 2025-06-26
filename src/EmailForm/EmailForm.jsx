@@ -103,7 +103,7 @@ const EmailForm = ({emailVisibility, answer}) => {
                 
 
                 <div className="email-form-buttons">
-                    <button className="email-form-button button-style" type="button" onClick={pasteAnswer}>Paste Answer</button>
+                    <button className="email-form-button button-style" type="button" onClick={pasteAnswer}>Paste</button>
                     <button className="email-form-button button-style" type="submit">Send</button>
                     <button className="email-form-button button-style" type="button" onClick={clearFields}>Clear</button>
                 </div>

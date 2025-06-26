@@ -1,7 +1,8 @@
 .input-container {
+    position: relative;
     width: 60%;
-    margin: 5% auto auto auto;
-    height: 70vh;
+    margin: auto;
+    height: 80%;
     background-image: url(../assets/background_feather.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -91,13 +92,21 @@
 }
 
 
+@media only screen and (max-width: 800px){
+    .input-container{
+        width: 80%;
+    }
+}
+
+
 
 @media only screen and (max-width: 453px) {
 
     .input-container{
         width: 99%;
         height:100%;
-        margin-top: 100px;
+        /* margin-top: 100px; */
+        margin: 0;
         border-radius: 0%;
     }
 
@@ -115,9 +124,9 @@
         height: 80%;
     }
 
-    .nav-bar {
+    /* .nav-bar {
         position: fixed;
-    }
+    } */
 
     .textbox-areas {
         width: 98%;
@@ -136,9 +145,15 @@
 }
 
 
+
+
+
 @media only screen and (max-height: 500px) {
-     .input-container{
+    /* @media only screen and (max-width: 800px){ */
+
+     .input-container {
         margin: 0 auto 0 auto;
         height: 100%;
     }
 }
+/* } */
