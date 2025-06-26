@@ -99,7 +99,7 @@ const EmailForm = ({emailVisibility, answer}) => {
                 </div>
 
                 
-                    <textarea className="textarea email-textarea" name="text" value={inputs["text"] ? inputs["text"] : ""} onChange={handleChange}></textarea>
+                <textarea className="textarea email-textarea" name="text" value={inputs["text"] ? inputs["text"] : ""} onChange={handleChange}></textarea>
                 
 
                 <div className="email-form-buttons">
@@ -108,9 +108,13 @@ const EmailForm = ({emailVisibility, answer}) => {
                     <button className="email-form-button button-style" type="button" onClick={clearFields}>Clear</button>
                 </div>
 
+                <button className="email-form-close button-style" type="button" onClick={() => {emailVisibility(false)}}>Close</button>
+
             </form>
 
-            <button className="email-form-close button-style" onClick={() => {emailVisibility(false)}}>Close</button>
+            <div className="quick-height">
+
+            </div>
 
         </div>
     )
