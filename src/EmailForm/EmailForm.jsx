@@ -84,7 +84,7 @@ const EmailForm = ({emailVisibility, answer}) => {
     return (
         <div className="email-container">
 
-            <h1>EMAIL</h1>
+            <h1>SEND EMAIL</h1>
 
             <form className="email-form" onSubmit={sendMail}>
 

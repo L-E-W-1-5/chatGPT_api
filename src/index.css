@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap');
+
+
 body {
-  background-color: #242424;
+  /* background-color: #242424; */
+  background-image: url(./assets/background_dark.jpg);
+  background-size: cover;
   margin: 0;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -7,3 +12,7 @@ body {
   height: 100vh;
 }
 
+:root {
+  --main-color: blue;
+  font-family: "Ubuntu", sans-serif;
+}

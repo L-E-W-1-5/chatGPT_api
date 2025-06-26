@@ -12,12 +12,9 @@ const url = 'https://chatgpt-backend-6uyd.onrender.com'
 
 export function UseFetch ()  {
                   
-
     const [answer, setAnswer] = useState();
 
     const [question, setQuestion] = useState({});
-
-
   
 
     useEffect((answer) => {
@@ -41,19 +38,15 @@ export function UseFetch ()  {
             .then(console.log(answer))
 
             .catch((err) => console.log(err));
-
         }
 
-console.log(question);
     if (question.question) handleFetch();
-
-   
         
     }, [question] )
 
 
-
     return {
+        
         answer: answer,
         setAnswer: setAnswer,
         setQuestion: setQuestion

@@ -12,6 +12,8 @@ const InputForm = () => {
     const [emailVisibility, setEmailVisibility] = useState();
 
     const [question1, setQuestion1] = useState();
+    
+
 
     //const answerboxRef = useRef(null)
 
@@ -40,7 +42,6 @@ const InputForm = () => {
 
             alert("No Question Asked")
         }
-
     }
 
     const fetchResources = () => {
@@ -55,16 +56,17 @@ const InputForm = () => {
             "question": question1,
             "previous_id": null
         });  
-
     }
 
 
     const emailForm = () => {
+
         setEmailVisibility(true);
     }
 
 
     const handleKeyPress = (event) => {
+
         if (event.key === 'Enter') fetchResources();
     }
 
@@ -74,6 +76,7 @@ const InputForm = () => {
         console.log(answer.payload)
 
         setAnswer({
+
             "payload": "",
             "success": answer.success,
             "response_id": answer.response_id
@@ -106,8 +109,6 @@ const InputForm = () => {
 
     return (
 
-      
-
         <div className="input-container">
 
             {/* <h3>Ask Question</h3> */}
@@ -119,16 +120,12 @@ const InputForm = () => {
                     <button className="form-button button-style" type="submit">Ask</button>
                     <button className="form-button button-style" type="button" onClick={emailForm}>Send</button>
                     <button className="form-button button-style" type="button" onClick={clearForm}>Clear</button>
-                    {/* <button className="form-button button-style" type="button" onClick={handleTextScroll}>move</button> */}
 
                 </div>
 
                 <div className="textbox-areas">
 
-                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea> 
-                        
-                       
-                    
+                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>        
            
                     <textarea className="question-text textarea" placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
@@ -150,7 +147,3 @@ const InputForm = () => {
 
 export default InputForm;
 
-//onChange={handleTextScroll}
-
-
-//`Still doesn't work yet asshole, but you typed ${answer.count} characters and "${answer.question}" is a shit question!`
