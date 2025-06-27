@@ -1,5 +1,7 @@
-import Header from './Header/Header.jsx'
+import Header from './Header/Header.jsx';
 import InputForm from './InputForm/inputForm.jsx';
+import Footer from './Footer/Footer.jsx';
+
 
 import './App.css';
 
@@ -10,6 +12,8 @@ function App() {
 
       <Header></Header>
       <InputForm></InputForm>
+      <Footer></Footer>
+      
 
     </div>
 

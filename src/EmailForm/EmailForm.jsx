@@ -1,4 +1,5 @@
 import './EmailForm.css';
+import { LoadingDots } from '../LoadingDots/LoadingDots';
 import {useState} from 'react';
 
 
@@ -17,6 +18,8 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     
     const [inputs, setInputs] = useState({});
+
+    const [loading, setLoading] = useState(false);
 
 //TODO: Can create an alert box, maybe hidden, to accept a persons own sign in credentials (email, password, provider) and use them to send an email from their own account.
 
@@ -40,26 +43,48 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     const handleEmailSend = async () => {
 
-        const res = await fetch(`${url}/email`, {
+        setLoading(true);
 
-            method: "POST",
+        console.log(inputs)
 
-            headers: { "Content-Type": "application/json" },
+        if(!inputs.subject || !inputs.recipient || !inputs.text) {
 
-            body: JSON.stringify(inputs)
+            setLoading(false);
 
-        })
+            return alert("Necessary Fields Not Entered")
+        }
 
-        .then(res => res.json())
+        try{
 
-        .then(res => res.success === false ? alert(res.payload) : alert("Email Sent!"))
+            const res = await fetch(`${url}/email`, {
 
-        .then(res => console.log(res))
+                method: "POST",
 
-        .catch(err => console.log(err))
+                headers: { "Content-Type": "application/json" },
+
+                body: JSON.stringify(inputs)
+
+            })
+
+            .then(res => res.json())
+
+            .then(res => res.success === false ? alert(res.payload) : alert("Email Sent!"))
+
+            .then(res => console.log(res))
+
+            .catch(err => console.log(err))
 
 
-        if (res) console.log(res);
+            if (res) console.log(res);
+
+        }catch(err){
+
+            console.log(err);
+
+        }finally{
+
+            setLoading(false);
+        }
     }
 
 
@@ -67,7 +92,7 @@ const EmailForm = ({emailVisibility, answer}) => {
 
         console.log(answer)
 
-        if(answer){
+        if(Object.keys(answer).length){
 
         setInputs(values => ({...values, ["text"]: `${inputs["text"] ? inputs["text"] : ""}${answer}`}));
         };
@@ -84,7 +109,13 @@ const EmailForm = ({emailVisibility, answer}) => {
     return (
         <div className="email-container">
 
-            <h1>SEND EMAIL</h1>
+            {loading &&
+                <div className="loading-container">
+                    <LoadingDots></LoadingDots>
+                </div>
+            }
+
+            <h1>Send Mail</h1>
 
             <form className="email-form" onSubmit={sendMail}>
 
