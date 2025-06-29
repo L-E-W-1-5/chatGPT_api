@@ -71,15 +71,6 @@
     overflow-y: auto;
 }
 
-.loading-container {
-    z-index: 102;
-    position: fixed;
-    display: grid;
-    place-items: center;
-    min-height: 100vh;
-    margin-top: 5vh;
-}
-
 
 @media only screen and (max-width: 800px){
     .input-container{

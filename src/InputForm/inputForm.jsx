@@ -112,7 +112,7 @@ const InputForm = () => {
 
         <div className="input-container">
 
-           {loading &&
+           {!loading &&
                 <div className="loading-container">
                     <LoadingDots></LoadingDots>
                 </div>

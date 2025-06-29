@@ -1,8 +1,8 @@
 .dots {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
+    /* justify-content: center;
+    align-items: center; */
+    margin-top: 40vh;
 }
 
 .dot {

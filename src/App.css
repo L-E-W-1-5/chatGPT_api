@@ -35,3 +35,14 @@
     transition: 0.7s;
 }
 
+.loading-container {
+    z-index: 102;
+    position: fixed;
+    /* display: grid;
+    place-items: center;
+    min-height: 100vh; */
+    /* top: 30%;
+    margin-left: 20%; */
+
+}
+
