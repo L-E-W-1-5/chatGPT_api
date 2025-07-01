@@ -49,16 +49,15 @@ export function UseFetch ()  {
 
                 alert('error fetching request');
                 console.log(err);
-                
+
             }finally {
                 setLoading(false);
             }
-
-            
         }
+
     
     if (question.question) handleFetch();
-        
+   
     }, [question] )
 
 

@@ -133,7 +133,7 @@ const InputForm = () => {
 
                     <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>        
            
-                    <textarea className="question-text textarea" placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
+                    <textarea className="question-text textarea" disabled={loading} placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
                 </div>
 
