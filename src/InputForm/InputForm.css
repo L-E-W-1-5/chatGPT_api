@@ -56,7 +56,7 @@
 
 
 @media only screen and (max-width: 800px){
-    .input-container{
+    .form-container{
         width: 80%;
     }
 }
@@ -65,7 +65,7 @@
 
 @media only screen and (max-width: 453px) {
 
-    .input-container{
+    .form-container{
         width: 100%;
         height:100%;
         /* margin-top: 100px; */
@@ -114,7 +114,7 @@
 @media only screen and (max-height: 500px) {
     /* @media only screen and (max-width: 800px){ */
 
-     .input-container {
+     .form-container {
         margin: 0 auto 0 auto;
         height: 100%;
     }
