@@ -94,13 +94,20 @@ const ImageForm = () => {
                 </div>
 
                 {answer &&
-
+                
                 <div className="image-container">
-            
-                <img className="returned-image" src={answer.payload} alt="image failed to generate" onClick={handleClear}/>
-               
-                </div>
 
+                    {answer.payload && 
+
+                    
+            
+                    <img className="returned-image" src={answer.payload} alt="image failed to generate" onClick={handleClear}/>
+            
+                    
+                    }
+
+                </div>
+                
                 }
 
 
