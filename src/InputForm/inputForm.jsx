@@ -8,7 +8,7 @@ import { LoadingDots } from '../LoadingDots/LoadingDots.jsx';
 
 const InputForm = () => {
 
-    const { answer, setAnswer, setQuestion, loading } = UseFetch({}); 
+    const { answer, setAnswer, setQuestion, loading, setEndpoint } = UseFetch({}); 
 
     const [emailVisibility, setEmailVisibility] = useState();
 
@@ -16,28 +16,13 @@ const InputForm = () => {
     
 
 
-    //const answerboxRef = useRef(null)
-
-
-    // useEffect(() => {
-    //     if(answerboxRef.current) {
-    //          console.log(answerboxRef.current)
-    //         answerboxRef.current.scrollTop = answerboxRef.current.scrollHeight;
-    //         console.log(answerboxRef.current.scrollTop)
-    //     }
-    // }, [answer])
-
-
-
-    const onSubmit = (data) => {
+    const handleSubmit = (data) => {
 
         data.preventDefault();
 
-        console.log(answer);
-
         if(question1){
 
-        fetchResources();
+            fetchResources();
 
         }else{
 
@@ -46,6 +31,8 @@ const InputForm = () => {
     }
 
     const fetchResources = () => {
+
+        setEndpoint('api');
 
         setQuestion(answer ? {
 
@@ -83,34 +70,14 @@ const InputForm = () => {
             "response_id": answer.response_id
         });
 
-        setQuestion1("");
+        setQuestion1('');
     }
 
-
-    // const handleTextScroll = () => {
-
-    //    // const scrollText = document.getElementsByClassName('answer-text');
-
-    //     // console.log(scrollText[0].scrollHeight)
-    //     // console.log(scrollText.scrollTop, scrollText[0].scrollHeight)
-
-    //     // scrollText.scrollTop = scrollText[0].scrollHeight;
-
-    //     // console.log(scrollText.scrollTop, scrollText[0].scrollHeight)
-
-    //     console.log(answerboxRef.current.scrollTop, answerboxRef.current.scrollHeight)
-
-    //    // answerboxRef.current.scrollTop = answerboxRef.current.scrollHeight;
-
-    //    answerboxRef.current.scrollTop = 100;
-
-    //     console.log(answerboxRef.current.scrollTop)
-    // }
 
 
     return (
 
-        <div className="input-container">
+        <div className="form-container">
 
            {loading &&
                 <div className="loading-container">
@@ -119,7 +86,7 @@ const InputForm = () => {
            }
                 
 
-            <form className="form-layout" onSubmit={onSubmit}>
+            <form className="form-layout" onSubmit={handleSubmit}>
 
                 <div className="form-buttons">
 

@@ -18,6 +18,14 @@
     align-self: center;
 }
 
+.form-change-button{
+   
+    height: 100%;
+    width: 10%;
+    align-self: center;
+    background: green;
+}
+
 
 
 @media only screen and (max-width: 280px) {

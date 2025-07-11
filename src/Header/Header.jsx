@@ -2,7 +2,7 @@
 import './Header.css';
 
 
-const Header = () => {
+const Header = ({setRequestType}) => {
 
    
 
@@ -13,7 +13,7 @@ const Header = () => {
 
             <h1 className="main-title">ChatGPT API</h1>
 
-            
+            <div className="form-change-button" onClick={() => setRequestType(current => !current)}>Change</div>
 
         </div>
     );

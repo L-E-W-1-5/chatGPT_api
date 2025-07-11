@@ -1,0 +1,35 @@
+.image-form-layout{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.image-prompt-textbox{
+    height: 50%;
+    width: 70%;
+    border-radius: 10px;
+}
+
+.image-buttons{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+   z-index: 1000;
+}
+
+.returned-image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
