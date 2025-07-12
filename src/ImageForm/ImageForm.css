@@ -31,13 +31,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(128, 128, 128, 0.2);
+    background-color: rgba(128, 128, 128, 0.8);
 }
 
 .returned-image{
     height: auto;
     width: 100%;
     margin: 0 auto;
+    margin-top: -10%;
     object-fit: contain;
     max-width: 100%;
     z-index: 1000;
