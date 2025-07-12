@@ -21,9 +21,11 @@
 .form-change-button{
    
     height: 100%;
-    width: 10%;
+    width: 15%;
     align-self: center;
     background: green;
+    display: flex;
+    align-items: center;
 }
 
 
