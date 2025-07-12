@@ -8,11 +8,14 @@ const ImageForm = () => {
 
     //TODO: have the img tag showing when there is a valid answer.payload (a url) redux?
     // Create the endpoint for the image search.
-    //const [url, setUrl] = useState(''); 
+
+    const [url, setUrl] = useState(''); 
 
     const [imageDescription, setImageDescription] = useState('');
 
     const { answer, setAnswer, setQuestion, loading, setEndpoint } = UseFetch({});
+    
+    const [emailVisibility, setEmailVisibility] = useState(false);
 
 
     const handleSubmit = (data) => {
@@ -52,6 +55,8 @@ const ImageForm = () => {
 
 
     const handleClear = () => {
+        
+        setUrl(answer.payload);
 
         setAnswer({
 
@@ -63,6 +68,11 @@ const ImageForm = () => {
         setQuestion('');
         
         setImageDescription('');
+    }
+    
+    const handleSend = () => {
+        
+        setEmailVisibility(current => !current);
     }
 
 
@@ -91,7 +101,7 @@ const ImageForm = () => {
 
                     <button className="form-button button-style" type="submit">create</button>
                     <button className="form-button button-style" type="button" onClick={handleClear}>clear</button>
-                    <button className="form-button button-style" type="button">send</button>
+                    <button className="form-button button-style" type="button" onClick={handleSend}>send</button>
                 
                 </div>
 
@@ -107,6 +117,8 @@ const ImageForm = () => {
 
 
             </form>
+            
+              {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={url ? url : {}}></EmailForm>}
 
         </div>
     )
