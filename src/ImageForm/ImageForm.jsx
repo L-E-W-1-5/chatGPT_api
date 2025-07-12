@@ -2,6 +2,7 @@ import './ImageForm.css';
 import { useState } from 'react';
 import { UseFetch } from '../Hooks/useFetch';
 import { LoadingDots } from '../LoadingDots/LoadingDots';
+import EmailForm from '../EmailForm/EmailForm.jsx';
 
 
 const ImageForm = () => {
