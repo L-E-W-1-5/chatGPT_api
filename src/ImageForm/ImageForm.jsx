@@ -61,6 +61,8 @@ const ImageForm = () => {
         })
 
         setQuestion('');
+        
+        setImageDescription('');
     }
 
 
