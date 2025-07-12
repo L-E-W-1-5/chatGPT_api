@@ -72,7 +72,7 @@ const ImageForm = () => {
     
     const handleSend = () => {
         
-        setEmailVisibility(current => !current);
+        setEmailVisibility(true);
     }
 
 
