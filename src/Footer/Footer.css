@@ -13,12 +13,12 @@
 }
 
 
-@media only screen and (max-height: 303px) {
-    .clock {
-        position: fixed;
-        z-index: 102;
-        top: 0;
-        right: 15px;
+@media only screen and (max-height: 500px) {
+    .clock{
+        text-orientation: upright;
+        writing-mode: vertical-lr;
+        font-size: 0.6rem;
+        margin: auto;
     }
 }
 

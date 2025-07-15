@@ -89,12 +89,13 @@ const ImageForm = () => {
                     <LoadingDots></LoadingDots>
                 </div>}
 
+            
 
             <form onSubmit={handleSubmit} className="image-form-layout">
 
-                
+                <h1 className="form-titles">Create Image</h1>
 
-                  <textarea className="image-prompt-textbox textarea" value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}}></textarea>
+                <textarea className="image-prompt-textbox textarea" value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}}></textarea>
 
                 
 

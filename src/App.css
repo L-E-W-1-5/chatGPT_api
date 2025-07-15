@@ -61,6 +61,10 @@
     color:white;
 }
 
+.form-titles{
+    color: rgba(0, 9, 175, 0.859);
+}
+
 
 @media only screen and (max-width: 800px){
     .form-container{
@@ -87,5 +91,10 @@
      .form-container {
         margin: 0 auto 0 auto;
         height: 100%;
+        width: 100%;
+    }
+
+    .main-container{
+        flex-direction: row;
     }
 }

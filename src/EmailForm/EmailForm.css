@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    /* gap: 10px; */
     /* min-width: 290px; */
     border-radius: 20px;
     /* border: 2px solid  rgb(0, 0, 244); */
@@ -49,7 +49,7 @@
     height: 70%;
     align-self: flex-end;
     border-radius: 10px;
-    min-height: 1rem;
+    min-height: 100px;
 }
 
 .email-form-buttons {
@@ -78,6 +78,11 @@
 }
 
 @media only screen and (max-width: 453px) {
+
+    .email-form{
+        gap: 5px;
+    }
+
     .email-form-buttons {
         gap: 10px;
     }
@@ -90,19 +95,26 @@
         width: 93%;
         align-self: center;
     }
+
+    .email-container{
+       border-radius: 0%;
+    }
 }
 
-@media only screen and (max-height: 450px) {
+@media only screen and (max-height: 500px) {
+
     .email-container{
-       
         margin: auto;
         font-size: 0.8rem; 
         gap: 5px;
-       
     }
 
     .email-input{
         font-size: 0.8rem;
+    }
+
+    .email-form{
+        gap: 5px;
     }
 }
 
@@ -117,28 +129,6 @@
     .email-input{
         font-size: 0.8rem;
     }
+
 }
 
-@media only screen and (max-height: 375px) {
-    .email-container {
-        min-height: 269px;
-    }
-}
-
-
-@media only screen and (max-height: 340px) {
-
-    .email-container {
-        flex-direction: row;
-        width: 130%;
-        padding-left: 20px;
-    }
-
-    .email-form-close {
-        margin-right: 10px;
-    }
-}
-
-/* @media (width <= 100){
-
-} */
