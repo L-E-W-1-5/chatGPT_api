@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 
 
 //Production
-const url = 'https://chatgpt-backend-6uyd.onrender.com'     
+//const url = 'https://chatgpt-backend-6uyd.onrender.com'     
 
 //TODO: dont forget to keep changing this for dev.
 
 //Dev
-//const url = 'http://localhost:3000';
+const url = 'http://localhost:3000';
 
 
 export function UseFetch ()  {
@@ -17,8 +17,6 @@ export function UseFetch ()  {
     const [question, setQuestion] = useState({});   //TODO: change this to request, setRequest
 
     const [loading, setLoading] = useState(false);
-
-    const [endPoint, setEndpoint] = useState('');
   
 
     useEffect((answer) => {
@@ -26,11 +24,13 @@ export function UseFetch ()  {
 
         const handleFetch = async () => {   
 
+            console.log(question);
+
             setLoading(true);
 
 
             try{
-                await fetch(`${url}/${endPoint}`, { 
+                await fetch(`${url}/${question.endpoint}`, { 
 
                     method: "POST",
 
@@ -55,16 +55,16 @@ export function UseFetch ()  {
 
             }finally {
                 setLoading(false);
-                //setQuestion({});
+                setQuestion({});
             }
 
           
         }
 
     
-    if (question.question && endPoint) handleFetch();
+    if (question.endpoint && question.question && question != {}) handleFetch();
    
-    }, [question, endPoint] )
+    }, [question] )
 
 
     return {
@@ -72,8 +72,7 @@ export function UseFetch ()  {
         answer: answer,
         setAnswer: setAnswer,
         setQuestion: setQuestion,
-        loading: loading,
-        setEndpoint: setEndpoint
+        loading: loading
     };
 
 }

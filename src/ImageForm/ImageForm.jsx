@@ -14,7 +14,7 @@ const ImageForm = () => {
 
     const [imageDescription, setImageDescription] = useState('');
 
-    const { answer, setAnswer, setQuestion, loading, setEndpoint } = UseFetch({});
+    const { answer, setAnswer, setQuestion, loading } = UseFetch({});
     
     const [emailVisibility, setEmailVisibility] = useState(false);
 
@@ -38,15 +38,15 @@ const ImageForm = () => {
 
     const handleFetch = () => {
 
-        setEndpoint('image');
-
         setQuestion(answer ? {
 
+            "endpoint": 'image',
             "question": imageDescription,
             "previous_id": answer.response_id
 
         } : {
 
+            "endpoint": 'image',
             "question": imageDescription,
             "previous_id": null
 

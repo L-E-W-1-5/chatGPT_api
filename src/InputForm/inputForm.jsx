@@ -8,11 +8,13 @@ import { LoadingDots } from '../LoadingDots/LoadingDots.jsx';
 
 const InputForm = () => {
 
-    const { answer, setAnswer, setQuestion, loading, setEndpoint } = UseFetch({}); 
+    const { answer, setAnswer, setQuestion, loading } = UseFetch({}); 
 
     const [emailVisibility, setEmailVisibility] = useState();
 
     const [question1, setQuestion1] = useState();
+
+    const [maximised, setMaximised] = useState(false);
     
 
 
@@ -32,15 +34,16 @@ const InputForm = () => {
 
     const fetchResources = () => {
 
-        setEndpoint('api');
 
         setQuestion(answer ? {
 
+            "endpoint": 'api',
             "question": question1,
             "previous_id": answer.response_id
 
         } : {
 
+            "endpoint": 'api',
             "question": question1,
             "previous_id": null
         });  
@@ -73,6 +76,11 @@ const InputForm = () => {
         setQuestion1('');
     }
 
+    const handleMaximisedWindow = () => {
+
+        setMaximised(current => !current);
+    } 
+
 
 
     return (
@@ -90,15 +98,17 @@ const InputForm = () => {
 
                 <div className="form-buttons">
 
-                    <button className="form-button button-style" disabled={loading} type="submit">Ask</button>
-                    <button className="form-button button-style" disabled={loading} type="button" onClick={emailForm}>Send</button>
-                    <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>Clear</button>
+                    <button className="form-button button-style" disabled={loading} type="submit">ask</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={emailForm}>send</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>clear</button>
 
                 </div>
 
                 <div className="textbox-areas">
 
-                    <textarea className="answer-text textarea" readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>        
+                     <button className={maximised ? "maximise-answer-button maximised-max-button" : "maximise-answer-button"} disabled={loading} type="button" onClick={handleMaximisedWindow}>[]</button>
+
+                    <textarea className={maximised ? "maximised textarea" : "answer-text textarea"} readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>        
            
                     <textarea className="question-text textarea" disabled={loading} placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
