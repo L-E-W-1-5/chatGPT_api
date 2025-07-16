@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 
 
 //Production
-//const url = 'https://chatgpt-backend-6uyd.onrender.com'     
+const url = 'https://chatgpt-backend-6uyd.onrender.com'     
 
 //TODO: dont forget to keep changing this for dev.
 
 //Dev
-const url = 'http://localhost:3000';
+//const url = 'http://localhost:3000';
 
 
 export function UseFetch ()  {

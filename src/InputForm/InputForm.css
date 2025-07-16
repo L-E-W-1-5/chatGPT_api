@@ -95,13 +95,6 @@
 
 @media only screen and (max-width: 453px) {
 
-    .form-container{
-        width: 100%;
-        height:100%;
-        /* margin-top: 100px; */
-        margin: 0;
-        border-radius: 0%;
-    }
 
     .form-buttons {
         flex-direction: row;
@@ -118,19 +111,19 @@
     }
 
     .textbox-areas {
-        width: 87%;
+        width: 86%;
         height: 100%;
         margin-bottom: 15%;
     }
 
     .question-text {
         height: 22%;
-        width: 98%;
+        width: 97%;
     }
 
     .answer-text {
         height: 75%;
-        width: 98%;
+        width: 97%;
     }
 }
 
