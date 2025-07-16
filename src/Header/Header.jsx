@@ -11,7 +11,7 @@ const Header = ({setRequestType}) => {
 
         <div className="nav-bar">
 
-            <h1 className="main-title">ChatGPT API</h1>
+            <h1 className="main-title">LuluGPT</h1>
 
             <div className="form-change-button" onClick={() => setRequestType(current => !current)}>Change</div>
 
