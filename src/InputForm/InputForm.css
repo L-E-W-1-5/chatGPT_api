@@ -31,11 +31,11 @@
 .textbox-areas {
     height: 100%;
     width: 70%;
-    display: inline-block;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     position: relative;
-    gap: 6%;
     margin: 3%;
 }
 
@@ -55,13 +55,17 @@
 }
 
 .maximised{
-    height: 100vh;
+    height: 70vh;
     width: 99vw;
+    margin:auto;
     padding-right: 10px;
+    padding-bottom: 50%;
     position: fixed;
     left: 0%;
     top: 0%;
-    z-index: 11;
+    z-index: 15;
+    background-color:  rgba(0, 9, 175, 0.889)!important;
+    overflow-y: scroll;
     
 }
 
@@ -69,7 +73,7 @@
     position: absolute;
     right: 8px;
     top: 8px;
-    z-index: 12;
+    z-index: 16;
     border-radius: 50%;
     border: 2px solid rgb(0, 0, 244);
     background-color:  rgba(0, 9, 175, 0.377);
@@ -106,6 +110,7 @@
         margin-top: 4%;
         height:10%;
         gap: 5px;
+        margin-bottom: 10%;
     }
 
     .form-button {
@@ -115,7 +120,7 @@
     .textbox-areas {
         width: 86%;
         height: 100%;
-        margin-bottom: 15%;
+        /* margin-bottom: 15%; */
     }
 
     .question-text {
@@ -131,9 +136,16 @@
 
 @media only screen and (max-height: 500px) {
 
-     .form-container {
-        margin: 0 auto 0 auto;
-        height: 100%;
+    
+    .form-buttons {
+        margin-bottom: 5%;
+        height: 30%;
+        width: 50%;
+    }
+
+    .textbox-areas{
+        margin: 0%;
+        margin-top: 2%;
     }
 }
 

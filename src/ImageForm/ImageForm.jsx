@@ -23,8 +23,6 @@ const ImageForm = () => {
 
         data.preventDefault();
 
-        console.log(imageDescription);
-
         if(imageDescription){
 
             handleFetch();
@@ -59,6 +57,8 @@ const ImageForm = () => {
         
         setUrl(answer.payload);
 
+        alert('URL Saved To Clipboard');
+
         setAnswer({
 
             "payload": "",
@@ -70,11 +70,41 @@ const ImageForm = () => {
         
         setImageDescription('');
     }
+
     
     const handleSend = () => {
         
         setEmailVisibility(true);
     }
+
+
+    const handleKeyPress = (e) => {
+
+        if(e.key === 'Enter') handleFetch();
+    }
+
+
+    const handleDownload = () => {
+
+        if(answer.payload){
+
+            const link = document.createElement('a');
+
+            link.href = answer.payload;
+
+            link.download = 'luluGPT-image.jpg';
+
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            document.body.removeChild(link);
+        } 
+    }
+
+
+
 
 
     
@@ -95,7 +125,7 @@ const ImageForm = () => {
 
                 <h1 className="form-titles">Create Image</h1>
 
-                <textarea className="image-prompt-textbox textarea" value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}}></textarea>
+                <textarea className="image-prompt-textbox textarea" value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
 
                 
 
@@ -107,15 +137,22 @@ const ImageForm = () => {
                 
                 </div>
 
-                {answer?.payload &&
+                {answer?.success === true &&
                 
                 <div className="image-container">
+
+                    <div className="image-buttons">
+                        <button className="button-style" type="button" onClick={handleClear}>close</button>
+                        <button className="button-style" type="button" onClick={handleDownload}>save</button>
+                    </div>
             
-                    <img className="returned-image" src={answer.payload} alt="image failed to generate" onClick={handleClear}/>
+                    <img className="returned-image" src={answer.payload} alt="image failed to generate"/>
 
                 </div>
                 
                 }
+
+              
 
 
             </form>

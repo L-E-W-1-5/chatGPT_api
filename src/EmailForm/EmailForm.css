@@ -107,6 +107,7 @@
         margin: auto;
         font-size: 0.8rem; 
         gap: 5px;
+        border-radius: 0%;
     }
 
     .email-input{

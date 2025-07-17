@@ -81,6 +81,8 @@ const InputForm = () => {
         setMaximised(current => !current);
     } 
 
+    
+
 
 
     return (
@@ -96,13 +98,7 @@ const InputForm = () => {
 
             <form className="form-layout" onSubmit={handleSubmit}>
 
-                <div className="form-buttons">
-
-                    <button className="form-button button-style" disabled={loading} type="submit">ask</button>
-                    <button className="form-button button-style" disabled={loading} type="button" onClick={emailForm}>send</button>
-                    <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>clear</button>
-
-                </div>
+                
 
                 <div className="textbox-areas">
 
@@ -112,6 +108,14 @@ const InputForm = () => {
            
                     <textarea className="question-text textarea" disabled={loading} placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
+                </div>
+
+                <div className="form-buttons">
+
+                    <button className="form-button button-style" disabled={loading} type="submit">ask</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={emailForm}>send</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>clear</button>
+
                 </div>
 
             </form>

@@ -19,18 +19,17 @@ export function UseFetch ()  {
     const [loading, setLoading] = useState(false);
   
 
-    useEffect((answer) => {
+    useEffect(() => {
 
 
         const handleFetch = async () => {   
 
-            console.log(question);
-
-            setLoading(true);
-
 
             try{
-                await fetch(`${url}/${question.endpoint}`, { 
+
+                setLoading(true);
+
+                const response = await fetch(`${url}/${question.endpoint}`, { 
 
                     method: "POST",
 
@@ -40,21 +39,35 @@ export function UseFetch ()  {
         
                 })
 
-                .then(reply => reply.json())
+                if(!response.ok){
 
-                .then(answer => setAnswer(answer))
+                    const errData = await response.json();
 
-                .then(console.log(answer))
+                    console.log('backend error', errData);
 
-                .catch((err) => console.log(err));
+                    alert(`error: ${errData.message || 'unknown error occured'}`);
+
+                    return;
+
+                }
+
+                const answer = await response.json();
+
+                setAnswer(answer);
+
+                console.log('answer', answer);
+
 
             }catch (err){
 
-                alert('error fetching request');
-                console.log(err);
+                console.error('network parsing error', err);
+
+                alert('an unexpected error occured', err);
 
             }finally {
+
                 setLoading(false);
+
                 setQuestion({});
             }
 
@@ -76,3 +89,36 @@ export function UseFetch ()  {
     };
 
 }
+
+
+
+
+//  try{
+
+//                 setLoading(true);
+
+//                 await fetch(`${url}/${question.endpoint}`, { 
+
+//                     method: "POST",
+
+//                     headers: { "Content-Type": "application/json" },
+
+//                     body: JSON.stringify({ "data": question })
+        
+//                 })
+
+//                 .then(reply => reply.json())
+
+//                 .then(answer => setAnswer(answer))
+
+//                 .catch((err) => console.log(err));
+
+//             }catch (err){
+
+//                 alert(err);
+
+//             }finally {
+//                 setLoading(false);
+
+//                 setQuestion({});
+//             }

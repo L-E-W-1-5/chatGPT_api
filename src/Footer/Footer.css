@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    
     padding-left: 10px;
     gap: 3%;
     width: auto;
@@ -19,6 +20,10 @@
         writing-mode: vertical-lr;
         font-size: 0.6rem;
         margin: auto;
+        max-width: 38px;
+        min-width: 38px;
+        justify-content: center;
+        padding-left: 0%;
     }
 }
 
