@@ -57,18 +57,20 @@ const ImageForm = () => {
         
         setUrl(answer.payload);
 
-        alert('URL Saved To Clipboard');
+        
 
         setAnswer({
 
             "payload": "",
-            "success": answer.success,
+            "success": false,
             "response_id": answer.response_id
         })
 
         setQuestion('');
         
         setImageDescription('');
+
+        alert('URL Saved To Clipboard');
     }
 
     
@@ -137,13 +139,13 @@ const ImageForm = () => {
                 
                 </div>
 
-                {answer?.success === true &&
+                {answer?.success &&
                 
                 <div className="image-container">
 
                     <div className="image-buttons">
                         <button className="button-style" type="button" onClick={handleClear}>close</button>
-                        <button className="button-style" type="button" onClick={handleDownload}>save</button>
+                        <button className="button-style" type="button" onClick={handleDownload}>url</button>
                     </div>
             
                     <img className="returned-image" src={answer.payload} alt="image failed to generate"/>
