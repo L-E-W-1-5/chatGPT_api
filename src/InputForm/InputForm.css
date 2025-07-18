@@ -74,13 +74,13 @@
     right: 8px;
     top: 8px;
     z-index: 16;
-    border-radius: 50%;
-    border: 2px solid rgb(0, 0, 244);
+    border-radius: 20%;
+    border: 2px solid var(--border);
     background-color:  rgba(0, 9, 175, 0.377);
     cursor: pointer;
     color: white;
-    min-width: 22px;
-    max-width: 22px;
+    min-width: 25px;
+    max-width: 25px;
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
     font-size: 0.9rem;

@@ -1,3 +1,8 @@
+* {
+    --backgroundColour: rgba(0, 9, 175, 0.714);
+    --border: rgb(0, 0, 244);
+}
+
 .main-container {
     display: flex;
     flex-direction: column;
@@ -6,16 +11,16 @@
 
 .textarea {
     resize: none;
-    background-color: rgba(0, 9, 175, 0.714);
+    background-color: var(--backgroundColour);
     color: white;
     font-family: "Ubuntu", sans-serif;
     font-size: 0.9rem;
 }
 
 .button-style {
-    border: 2px solid rgb(0, 0, 244);
+    border: 2px solid var(--border);
     border-radius: 10px;
-    background-color:  rgba(0, 9, 175, 0.714);
+    background-color: var(--backgroundColour);
     color: white;
     min-width: 48px;
     font-family: "Ubuntu", sans-serif;
@@ -30,7 +35,6 @@
     outline-color: transparent;
     outline-style:solid;
     box-shadow: 0 0 0 2px #7ba701;
-    /* box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.391); */
     transition: 0.7s;
 }
 

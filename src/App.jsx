@@ -15,7 +15,7 @@ const [requestType, setRequestType] = useState(true);
 
     <div className="main-container">
 
-      <Header setRequestType={setRequestType}></Header>
+      <Header requestType={requestType} setRequestType={setRequestType}></Header>
 
       {requestType === true && 
       <InputForm></InputForm>

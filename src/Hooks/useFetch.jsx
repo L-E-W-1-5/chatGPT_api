@@ -21,9 +21,7 @@ export function UseFetch ()  {
 
     useEffect(() => {
 
-
         const handleFetch = async () => {   
-
 
             try{
 

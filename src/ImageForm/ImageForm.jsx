@@ -144,8 +144,10 @@ const ImageForm = () => {
                 <div className="image-container">
 
                     <div className="image-buttons">
-                        <button className="button-style" type="button" onClick={handleClear}>close</button>
-                        <button className="button-style" type="button" onClick={handleDownload}>url</button>
+
+                        <button className="image-button" type="button" onClick={handleDownload}>url</button>
+                        <button className="image-button" type="button" onClick={handleClear}>close</button>
+                        
                     </div>
             
                     <img className="returned-image" src={answer.payload} alt="image failed to generate"/>

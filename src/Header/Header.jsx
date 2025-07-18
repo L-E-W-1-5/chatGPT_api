@@ -1,8 +1,10 @@
 
 import './Header.css';
+import right_logo from '../assets/right-arrow.png';
+import left_logo from '../assets/left-arrow.png';
 
 
-const Header = ({setRequestType}) => {
+const Header = ({requestType, setRequestType}) => {
 
    
 
@@ -13,8 +15,10 @@ const Header = ({setRequestType}) => {
 
             <h1 className="main-title">LuluGPT</h1>
 
-            <div className="form-change-button" onClick={() => setRequestType(current => !current)}>Change</div>
+            {/* <div className="form-change-button" onClick={() => setRequestType(current => !current)}>Change</div> */}
 
+            <img className="form-change-icon"  onClick={() => setRequestType(current => !current)} src={requestType === true ? right_logo : left_logo} alt="image failed to load"></img>
+            
         </div>
     );
 }

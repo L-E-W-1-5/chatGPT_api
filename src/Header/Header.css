@@ -8,7 +8,6 @@
     width: auto;
     background-color: rgba(0, 0, 244, 0.069);
     top: 0%;
-    /* border: 2px solid white; */
     min-height: 50px;
 }
 
@@ -29,8 +28,28 @@
     user-select: none;
     cursor: pointer;
     font-size: 0.7rem;
+    color: white;
 }
 
+.form-change-icon{
+    height: 80px;
+    width: 80px;
+    align-self: center;
+    cursor: pointer;
+    z-index: 20;
+    margin-top: 40px;
+    margin-right: 8px;
+}
+
+
+@media only screen and (max-width: 500px) {
+
+    .form-change-icon{
+        height: 50px;
+        width: 50px;
+        margin-top: 0px;
+    }
+}
 
 
 @media only screen and (max-width: 280px) {
@@ -72,6 +91,13 @@
     .form-change-button{
         height: 10%;
         width: 100%;
+    }
+
+    .form-change-icon{
+        height: 50px;
+        width: 50px;
+        margin-top: 5px;
+        margin-left: 5px;
     }
 }
 

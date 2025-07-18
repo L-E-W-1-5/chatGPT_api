@@ -28,6 +28,18 @@
     gap: 5px;
 }
 
+.image-button{
+    height: 30px;
+    width: 50px;
+    background-color: var(--backgroundColour);
+    color: white;
+    border-radius: 20%;
+    border: 2px solid rgb(0, 0, 244);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+
+}
+
 .image-container{
     position: fixed;
     margin: 0;
