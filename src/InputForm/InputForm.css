@@ -44,14 +44,14 @@
     /* height: 40%;  */
     flex-grow: 1;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px 5px 10px 10px;
 }
 
 .answer-text {
     flex-grow: 2;
     /* height: 50%;  */
     /* margin: 3%; */
-    border-radius: 10px;
+    border-radius: 10px 10px 5px 5px;
     overflow-y: auto;
     position: relative;
     width: 100%;
@@ -134,7 +134,7 @@
     .textbox-areas {
         width: 86%;
         height: 60%;
-        gap: 3px;
+        gap: 1px;
     }
 
      .answer-text {
