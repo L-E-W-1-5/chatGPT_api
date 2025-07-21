@@ -81,7 +81,7 @@
 @media only screen and (max-width: 453px) {
 
     .email-form{
-        gap: 5px;
+        gap: 10px;
     }
 
     .email-form-buttons {
