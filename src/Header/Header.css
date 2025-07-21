@@ -32,12 +32,12 @@
 }
 
 .form-change-icon{
-    height: 80px;
-    width: 80px;
+    height: 60px;
+    width: 60px;
     align-self: center;
     cursor: pointer;
     z-index: 20;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-right: 8px;
 }
 
@@ -72,20 +72,24 @@
 }
 
 @media only screen and (max-height: 500px) {
+    @media only screen and (min-width: 330px) {
 
     .nav-bar{
         flex-direction: column-reverse;
         height: 100%;
         align-items: center;
         justify-content: center;
+        max-width: 63px;
+        min-width: 63px;
     }
     .main-title{
-        text-orientation: upright;
-        writing-mode: vertical-lr;
+        /* text-orientation: upright;
+        writing-mode: vertical-lr; */
         font-size: 1.2rem;
         margin: auto;
         align-items: center;
         justify-content: center;
+        transform: rotate(-90deg);
     }
 
     .form-change-button{
@@ -98,6 +102,22 @@
         width: 50px;
         margin-top: 5px;
         margin-left: 5px;
+    }
+}
+}
+
+@media only screen and (max-width: 256px){
+    @media screen and (max-height: 230px){
+        .main-title{
+            font-size: 0.6rem;
+        }
+
+        .form-change-icon{
+            height: 30px;
+            width: 30px;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
     }
 }
 

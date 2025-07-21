@@ -53,10 +53,11 @@
 }
 
 .email-form-buttons {
-    width: 80%;
+    width: 100%;
     height: 20%;
     align-self: center;
     display: flex;
+    justify-content: center;
     gap: 20px;
 }
 

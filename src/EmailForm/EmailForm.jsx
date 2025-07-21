@@ -90,12 +90,14 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     const pasteAnswer = () => {
 
-        console.log(answer)
-
         if(Object.keys(answer).length){
 
-        setInputs(values => ({...values, ["text"]: `${inputs["text"] ? inputs["text"] : ""}${answer}`}));
-        };
+            setInputs(values => ({...values, ["text"]: `${inputs["text"] ? inputs["text"] : ""}${answer}`}));
+
+        }else{
+
+            alert('Nothing To Paste');
+        }
     }
 
 
@@ -120,23 +122,27 @@ const EmailForm = ({emailVisibility, answer}) => {
             <form className="email-form" onSubmit={sendMail}>
 
                 <div className="email-form-item">
+
                 <label className="email-label">To:</label>
                     <input className="email-input" disabled={loading} type="text" name="recipient" placeholder='email address of recipient' value={inputs["recipient"] ? inputs["recipient"] : ""} onChange={handleChange}></input>
+
                 </div>
 
                 <div className="email-form-item">
+
                 <label className="email-label">Subject: </label>
                     <input className="email-input" disabled={loading} type="text" name="subject" placeholder='enter subject here' value={inputs["subject"] ? inputs["subject"] : ""} onChange={handleChange}></input>
-                </div>
 
+                </div>
                 
                 <textarea className="textarea email-textarea" disabled={loading} name="text" value={inputs["text"] ? inputs["text"] : ""} onChange={handleChange}></textarea>
                 
-
                 <div className="email-form-buttons">
+
                     <button className="email-form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>Paste</button>
                     <button className="email-form-button button-style" disabled={loading} type="submit">Send</button>
                     <button className="email-form-button button-style" disabled={loading} type="button" onClick={clearFields}>Clear</button>
+                    
                 </div>
 
                 <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>Close</button>

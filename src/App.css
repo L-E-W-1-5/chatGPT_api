@@ -26,7 +26,9 @@
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
     font-size: 0.9rem;
+    max-width: 150px;
     min-height: 23px;
+    max-height: 45px;
     cursor: pointer;
     user-select: none;
 }
@@ -36,6 +38,11 @@
     outline-style:solid;
     box-shadow: 0 0 0 2px #7ba701;
     transition: 0.7s;
+}
+
+.change-form-button {
+    white-space: nowrap;
+    min-width: 150px;
 }
 
 .loading-container {
@@ -89,7 +96,7 @@
 }
 
 @media only screen and (max-height: 500px) {
-
+@media only screen and (min-width: 330px) {
      .form-container {
         margin: 0 auto 0 auto;
         height: 100%;
@@ -101,4 +108,5 @@
         flex-direction: row;
         overflow-y: auto;
     }
+}
 }

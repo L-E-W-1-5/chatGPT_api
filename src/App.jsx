@@ -18,11 +18,11 @@ const [requestType, setRequestType] = useState(true);
       <Header requestType={requestType} setRequestType={setRequestType}></Header>
 
       {requestType === true && 
-      <InputForm></InputForm>
+      <InputForm requestType={requestType} setRequestType={setRequestType}></InputForm>
       }
 
       {requestType === false && 
-      <ImageForm></ImageForm>
+      <ImageForm setRequestType={setRequestType}></ImageForm>
       }
 
       <Footer></Footer>

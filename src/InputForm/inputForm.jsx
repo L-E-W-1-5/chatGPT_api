@@ -6,7 +6,7 @@ import {UseFetch} from '../Hooks/useFetch.jsx';
 import { LoadingDots } from '../LoadingDots/LoadingDots.jsx';
 
 
-const InputForm = () => {
+const InputForm = ({setRequestType}) => {
 
     const { answer, setAnswer, setQuestion, loading } = UseFetch({}); 
 
@@ -81,7 +81,6 @@ const InputForm = () => {
         setMaximised(current => !current);
     } 
 
-    
 
 
 
@@ -117,6 +116,13 @@ const InputForm = () => {
                     <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>clear</button>
 
                 </div>
+
+                <div className="form-buttons">
+
+                    <button className="form-button button-style change-form-button" type="button" onClick={() => setRequestType(current => !current)}>image generation</button>
+               
+                </div>
+
 
             </form>
 

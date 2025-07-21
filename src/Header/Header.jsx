@@ -1,12 +1,9 @@
-
 import './Header.css';
 import right_logo from '../assets/right-arrow.png';
 import left_logo from '../assets/left-arrow.png';
 
 
 const Header = ({requestType, setRequestType}) => {
-
-   
 
 
     return (

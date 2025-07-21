@@ -53,8 +53,6 @@ export function UseFetch ()  {
 
                 setAnswer(answer);
 
-                console.log('answer', answer);
-
 
             }catch (err){
 

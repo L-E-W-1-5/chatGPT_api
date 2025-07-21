@@ -5,7 +5,7 @@ import { LoadingDots } from '../LoadingDots/LoadingDots';
 import EmailForm from '../EmailForm/EmailForm.jsx';
 
 
-const ImageForm = () => {
+const ImageForm = ({setRequestType}) => {
 
     //TODO: have the img tag showing when there is a valid answer.payload (a url) redux?
     // Create the endpoint for the image search.
@@ -127,15 +127,22 @@ const ImageForm = () => {
 
                 <h1 className="form-titles">Create Image</h1>
 
-                <textarea className="image-prompt-textbox textarea" value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
+                <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
 
                 
 
                 <div className="form-buttons">
 
-                    <button className="form-button button-style" type="submit">create</button>
-                    <button className="form-button button-style" type="button" onClick={handleClear}>clear</button>
-                    <button className="form-button button-style" type="button" onClick={handleSend}>send</button>
+                    <button className="form-button button-style" disabled={loading} type="submit">create</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={handleClear}>clear</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={handleSend}>send</button>
+                    
+                
+                </div>
+
+                <div className="form-buttons">
+
+                    <button className="form-button button-style change-form-button" type="button" onClick={() => setRequestType(current => !current)}>ask question</button>
                 
                 </div>
 
