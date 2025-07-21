@@ -134,3 +134,8 @@
 
 }
 
+@media only screen and (max-height: 300px) {
+    .email-textarea{
+        min-height: 50px;
+    }
+}

@@ -117,7 +117,7 @@ const EmailForm = ({emailVisibility, answer}) => {
                 </div>
             }
 
-            <h1>Send Mail</h1>
+            <h1 className="form-titles">Send Mail</h1>
 
             <form className="email-form" onSubmit={sendMail}>
 
@@ -142,7 +142,7 @@ const EmailForm = ({emailVisibility, answer}) => {
                     <button className="email-form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>Paste</button>
                     <button className="email-form-button button-style" disabled={loading} type="submit">Send</button>
                     <button className="email-form-button button-style" disabled={loading} type="button" onClick={clearFields}>Clear</button>
-                    
+
                 </div>
 
                 <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>Close</button>

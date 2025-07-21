@@ -62,7 +62,7 @@
     }
 
     .nav-bar {
-        font-size: 0.8rem;
+        font-size: 0.6rem;
     }
 
     .form-change-button{
@@ -118,6 +118,12 @@
             margin-top: 5px;
             margin-left: 5px;
         }
+    }
+}
+
+@media only screen and (max-height: 200px){
+    .nav-bar{
+        min-height:32px;
     }
 }
 

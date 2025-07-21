@@ -134,7 +134,7 @@
     .textbox-areas {
         width: 86%;
         height: 60%;
-       
+        gap: 3px;
     }
 
      .answer-text {
