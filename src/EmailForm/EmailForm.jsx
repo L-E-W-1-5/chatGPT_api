@@ -142,10 +142,12 @@ const EmailForm = ({emailVisibility, answer}) => {
                     <button className="email-form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>Paste</button>
                     <button className="email-form-button button-style" disabled={loading} type="submit">Send</button>
                     <button className="email-form-button button-style" disabled={loading} type="button" onClick={clearFields}>Clear</button>
-
+                    
                 </div>
 
-                <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>Close</button>
+                <div className="email-close-div">
+                    <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>Close</button>
+                </div>
 
             </form>
 

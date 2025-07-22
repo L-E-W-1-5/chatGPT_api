@@ -134,9 +134,8 @@ const ImageForm = ({setRequestType}) => {
                 <div className="form-buttons">
 
                     <button className="form-button button-style" disabled={loading} type="submit">create</button>
-                    <button className="form-button button-style" disabled={loading} type="button" onClick={handleClear}>clear</button>
                     <button className="form-button button-style" disabled={loading} type="button" onClick={handleSend}>send</button>
-                    
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={handleClear}>clear</button>  
                 
                 </div>
 

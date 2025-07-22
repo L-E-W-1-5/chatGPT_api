@@ -73,6 +73,7 @@
 
 .form-titles{
     color: rgba(0, 9, 175, 0.859);
+    user-select: none;
 }
 
 

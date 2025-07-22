@@ -101,7 +101,7 @@ const InputForm = ({setRequestType}) => {
 
                 <div className="textbox-areas">
 
-                     <button className={maximised ? "maximise-answer-button maximised-max-button" : "maximise-answer-button"} disabled={loading} type="button" onClick={handleMaximisedWindow}>[]</button>
+                     <button className={maximised ? "maximise-answer-button maximised-max-button" : "maximise-answer-button"} disabled={loading} type="button" onClick={handleMaximisedWindow}></button>
 
                     <textarea className={maximised ? "maximised textarea" : "answer-text textarea"} readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>        
            
