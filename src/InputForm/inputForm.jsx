@@ -76,6 +76,29 @@ const InputForm = ({setRequestType}) => {
         setQuestion1('');
     }
 
+
+//     const changeForm = () => {
+
+//         const data = answer?.payload;
+
+//         if(data) {
+
+//             localStorage.setItem('answer', data);
+//         };
+
+//         setRequestType(current => !current);
+//     }
+
+
+//     const retrieveLocalData = () => {
+
+//         const data = localStorage.getItem('answer');
+
+// console.log(data);
+
+//         return data 
+//     }
+
     const handleMaximisedWindow = () => {
 
         setMaximised(current => !current);

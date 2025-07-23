@@ -49,13 +49,12 @@
 
 .answer-text {
     flex-grow: 2;
-    /* height: 50%;  */
-    /* margin: 3%; */
     border-radius: 10px 10px 5px 5px;
     overflow-y: auto;
     position: relative;
     width: 100%;
     background-color: rgba(115, 118, 168, 0.714)!important;
+    cursor: default;
 }
 
 /* rgba(115, 118, 168, 0.714)!important; */
@@ -71,7 +70,9 @@
     top: 0%;
     z-index: 15;
     background-color:  rgba(115, 118, 168, 0.94)!important;
+    font-size: 1rem!important;
     overflow-y: scroll;
+    cursor: default;
 }
  /* rgba(0, 9, 175, 0.889)!important; */
 
