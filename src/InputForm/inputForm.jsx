@@ -1,6 +1,6 @@
 import './InputForm.css';
 import '../EmailForm/EmailForm.jsx';
-import {useState} from 'react'; //, useRef, useEffect
+import {useState, useEffect} from 'react'; //, useRef, useEffect
 import EmailForm from '../EmailForm/EmailForm.jsx';
 import {UseFetch} from '../Hooks/useFetch.jsx';
 import { LoadingDots } from '../LoadingDots/LoadingDots.jsx';
@@ -15,8 +15,21 @@ const InputForm = ({setRequestType}) => {
     const [question1, setQuestion1] = useState();
 
     const [maximised, setMaximised] = useState(false);
-    
 
+    const [text, setText] = useState('');
+
+
+    useEffect (() => {
+
+        const storedData = localStorage.getItem('answer');
+
+        if(storedData){
+
+            setText(storedData);
+        };
+
+    }, []);
+    
 
     const handleSubmit = (data) => {
 
@@ -29,11 +42,11 @@ const InputForm = ({setRequestType}) => {
         }else{
 
             alert("No Question Asked")
-        }
-    }
+        };
+    };
+
 
     const fetchResources = () => {
-
 
         setQuestion(answer ? {
 
@@ -47,62 +60,55 @@ const InputForm = ({setRequestType}) => {
             "question": question1,
             "previous_id": null
         });  
-    }
+    };
 
 
     const emailForm = () => {
 
         setEmailVisibility(true);
-    }
+    };
 
 
     const handleKeyPress = (event) => {
 
         if (event.key === 'Enter') fetchResources();
-    }
+    };
 
 
     const clearForm = () => {
 
-        console.log(answer.payload)
-
         setAnswer({
 
             "payload": "",
-            "success": answer.success,
-            "response_id": answer.response_id
+            "success": false,
+            "response_id": answer?.response_id
         });
 
         setQuestion1('');
-    }
+
+        setText('');
+
+        localStorage.clear();
+    };
 
 
-//     const changeForm = () => {
+    const changeForm = () => {
 
-//         const data = answer?.payload;
+        const data = answer?.payload;
 
-//         if(data) {
+        if(data) {
 
-//             localStorage.setItem('answer', data);
-//         };
+            localStorage.setItem('answer', data);
+        };
 
-//         setRequestType(current => !current);
-//     }
+        setRequestType(current => !current);
+    };
 
-
-//     const retrieveLocalData = () => {
-
-//         const data = localStorage.getItem('answer');
-
-// console.log(data);
-
-//         return data 
-//     }
 
     const handleMaximisedWindow = () => {
 
         setMaximised(current => !current);
-    } 
+    };
 
 
 
@@ -126,7 +132,7 @@ const InputForm = ({setRequestType}) => {
 
                      <button className={maximised ? "maximise-answer-button maximised-max-button" : "maximise-answer-button"} disabled={loading} type="button" onClick={handleMaximisedWindow}></button>
 
-                    <textarea className={maximised ? "maximised textarea" : "answer-text textarea"} readOnly value={answer ? `${answer.payload}` : "answer will appear here.."}></textarea>        
+                    <textarea className={maximised ? "maximised textarea" : "answer-text textarea"} readOnly placeholder='answer will appear here...' value={answer ? `${answer.payload}` : text}></textarea>        
            
                     <textarea className="question-text textarea" disabled={loading} placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
@@ -142,7 +148,7 @@ const InputForm = ({setRequestType}) => {
 
                 <div className="form-buttons">
 
-                    <button className="form-button button-style change-form-button" type="button" onClick={() => setRequestType(current => !current)}>image generation</button>
+                    <button className="form-button button-style change-form-button" type="button" onClick={changeForm}>image generation</button>
                
                 </div>
 
@@ -159,7 +165,7 @@ const InputForm = ({setRequestType}) => {
     );
 
 
-}
+};
 
 export default InputForm;
 

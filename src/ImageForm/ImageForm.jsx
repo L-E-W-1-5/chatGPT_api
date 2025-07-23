@@ -30,8 +30,8 @@ const ImageForm = ({setRequestType}) => {
         }else{
 
             alert('No Image Description Provided');
-        }
-    }
+        };
+    };
 
 
     const handleFetch = () => {
@@ -50,40 +50,38 @@ const ImageForm = ({setRequestType}) => {
 
         });
 
-    }
+    };
 
 
     const handleClear = () => {
         
-        setUrl(answer.payload);
-
-        
+        setUrl(answer?.payload);
 
         setAnswer({
 
             "payload": "",
             "success": false,
-            "response_id": answer.response_id
-        })
+            "response_id": answer?.response_id
+        });
 
         setQuestion('');
         
         setImageDescription('');
 
         alert('URL Saved To Clipboard');
-    }
+    };
 
     
     const handleSend = () => {
         
         setEmailVisibility(true);
-    }
+    };
 
 
     const handleKeyPress = (e) => {
 
         if(e.key === 'Enter') handleFetch();
-    }
+    };
 
 
     const handleDownload = () => {
@@ -102,11 +100,8 @@ const ImageForm = ({setRequestType}) => {
             link.click();
 
             document.body.removeChild(link);
-        } 
-    }
-
-
-
+        }; 
+    };
 
 
     
