@@ -98,7 +98,9 @@ const InputForm = ({setRequestType}) => {
 
         setText({});
 
-        localStorage.clear();
+        localStorage.removeItem('answer');
+        
+        localStorage.removeItem('question');
     };
 
 

@@ -10,7 +10,6 @@ const ImageForm = ({setRequestType}) => {
     //TODO: have the img tag showing when there is a valid answer.payload (a url) redux?
     // Create the endpoint for the image search.
 
-    const [url, setUrl] = useState(''); 
 
     const [imageDescription, setImageDescription] = useState('');
 
@@ -20,17 +19,36 @@ const ImageForm = ({setRequestType}) => {
 
     const [storedImage, setStoredImage] = useState('');
 
+    const [showHide, setShowHide] = useState(false);
+
 
     useEffect(() => {
 
         const storedImage = localStorage.getItem('image');
+
+        const storedImageDescription = localStorage.getItem('imageDescription');
 
         if(storedImage){
 
             setStoredImage(storedImage);
         };
 
+        if(storedImageDescription){
+
+            setImageDescription(storedImageDescription);
+        };
+
     }, [])
+
+
+    useEffect(() => {
+
+        if(answer?.payload){
+
+            setShowHide(true);
+        }
+
+    }, [answer])
 
 
     const handleSubmit = (data) => {
@@ -50,6 +68,12 @@ const ImageForm = ({setRequestType}) => {
 
     const handleFetch = () => {
 
+        setAnswer({
+            "payload": "",
+            "success": false,
+            "response_id": answer?.response_id
+        });
+
         setQuestion(answer ? {
 
             "endpoint": 'image',
@@ -67,9 +91,7 @@ const ImageForm = ({setRequestType}) => {
     };
 
 
-    const handleClear = () => {
-        
-        setUrl(answer?.payload);
+    const handleClear = () => { 
 
         setAnswer({
 
@@ -82,7 +104,11 @@ const ImageForm = ({setRequestType}) => {
         
         setImageDescription('');
 
-        alert('URL Saved To Clipboard');
+        setStoredImage('')
+
+        localStorage.removeItem('image');
+
+        localStorage.removeItem('imageDescription');
     };
 
     
@@ -98,34 +124,27 @@ const ImageForm = ({setRequestType}) => {
     };
 
 
-    const handleDownload = () => {
+    const closeImage = () => {
 
-        if(answer.payload){
+        console.log(showHide, answer?.payload, storedImage);
 
-            const link = document.createElement('a');
-
-            link.href = answer.payload;
-
-            link.download = 'luluGPT-image.jpg';
-
-
-            document.body.appendChild(link);
-
-            link.click();
-
-            document.body.removeChild(link);
-        }; 
-    };
+        setShowHide(false);
+    }
 
 
     const changeForm = () => {
 
-        console.log(storedImage);
+        const data = answer?.payload;
 
-        if(url){
+        if(data){
 
-            localStorage.setItem('image', url);
+            localStorage.setItem('image', data);
         };
+
+        if(imageDescription){
+
+            localStorage.setItem('imageDescription', imageDescription);
+        }
 
         setRequestType(current => !current);
     }
@@ -149,11 +168,13 @@ const ImageForm = ({setRequestType}) => {
 
                 <h1 className="form-titles">Create Image</h1>
 
+                <div className="image-prompt-container">
 
+                    <button className="show-hide-button" type="button" onClick={() => setShowHide(true)}>show</button>
 
-                <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
+                    <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
 
-
+                </div>
 
                 <div className="form-buttons">
 
@@ -169,32 +190,44 @@ const ImageForm = ({setRequestType}) => {
                 
                 </div>
 
-                {answer?.success &&
-                
-                <div className="image-container">
+                {showHide && (() => {
 
-                    <div className="image-buttons">
-
-                        <button className="image-button" type="button" onClick={handleDownload}>url</button>
-                        <button className="image-button" type="button" onClick={handleClear}>close</button>
+                    if(!answer?.payload && !storedImage){
                         
-                    </div>
-            
-                    <img className="returned-image" src={answer.payload? answer.payload : storedImage} alt="image failed to generate"/>
+                        alert("No Image Available");
 
-                </div>
+                        setShowHide(false);
+
+                        return null;
+                    }
+                    
+                    return(
+
+                    <div className="image-container">
+
+                        <div className="image-buttons">
+
+                            <button className="image-button" type="button" onClick={closeImage}>close</button>
+                        
+                        </div>
+            
+                        <img className="returned-image" src={answer?.payload ? answer.payload : storedImage} alt="image failed to generate"/>
+
+                    </div>
+                    );
                 
-                }
+                })()};
 
               
 
 
             </form>
             
-              {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={url ? url : storedImage}></EmailForm>}
+              {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer?.payload ? answer?.payload : storedImage}></EmailForm>}
 
         </div>
     )
 }
 
 export default ImageForm;
+
