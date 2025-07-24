@@ -26,16 +26,35 @@
 .show-hide-button{
     position: absolute;
     z-index: 1;
-    bottom: 5px;
-    left: 37%;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-family: "Ubuntu", sans-serif;
     font-weight: bold;
     font-size: 0.9rem;
     user-select: none;
     color: white;
     background-color: rgba(199, 203, 205, 0.631);
-    border-radius: 10px;
+    border-radius: 15px;
     min-width: 80px;
+    min-height: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background 300ms ease-in-out, 
+                transform 150ms ease;
+}
+
+.show-hide-button:hover {
+    background: rgba(236, 240, 240, 0.631);
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 1px #68c7da;
+    box-shadow: 0px 0px 0px;
+    transition: 0.7s;
+}
+
+.show-hide-button:active {
+    transform: scale(.9);
 }
 
 .image-buttons{

@@ -170,7 +170,7 @@ const ImageForm = ({setRequestType}) => {
 
                 <div className="image-prompt-container">
 
-                    <button className="show-hide-button" type="button" onClick={() => setShowHide(true)}>show</button>
+                    <button className="show-hide-button" style={{display: !storedImage && !answer?.payload && "none"}} type="button" onClick={() => setShowHide(true)}>show</button>
 
                     <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
 
@@ -193,7 +193,7 @@ const ImageForm = ({setRequestType}) => {
                 {showHide && (() => {
 
                     if(!answer?.payload && !storedImage){
-                        
+
                         alert("No Image Available");
 
                         setShowHide(false);
@@ -214,9 +214,9 @@ const ImageForm = ({setRequestType}) => {
                         <img className="returned-image" src={answer?.payload ? answer.payload : storedImage} alt="image failed to generate"/>
 
                     </div>
-                    );
+                    )
                 
-                })()};
+                })()}
 
               
 

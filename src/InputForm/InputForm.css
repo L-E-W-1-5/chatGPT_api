@@ -24,11 +24,6 @@
     
 }
 
-.button-style:active {
-    background-color: rgb(0, 0, 200);
-    box-shadow: 0px 0px 0px;
-}
-
 .textbox-areas {
     height: 60%;
     width: 70%;
