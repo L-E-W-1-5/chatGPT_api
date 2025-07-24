@@ -1,5 +1,5 @@
 import './ImageForm.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { UseFetch } from '../Hooks/useFetch';
 import { LoadingDots } from '../LoadingDots/LoadingDots';
 import EmailForm from '../EmailForm/EmailForm.jsx';
@@ -17,6 +17,20 @@ const ImageForm = ({setRequestType}) => {
     const { answer, setAnswer, setQuestion, loading } = UseFetch({});
     
     const [emailVisibility, setEmailVisibility] = useState(false);
+
+    const [storedImage, setStoredImage] = useState('');
+
+
+    useEffect(() => {
+
+        const storedImage = localStorage.getItem('image');
+
+        if(storedImage){
+
+            setStoredImage(storedImage);
+        };
+
+    }, [])
 
 
     const handleSubmit = (data) => {
@@ -104,6 +118,19 @@ const ImageForm = ({setRequestType}) => {
     };
 
 
+    const changeForm = () => {
+
+        console.log(storedImage);
+
+        if(url){
+
+            localStorage.setItem('image', url);
+        };
+
+        setRequestType(current => !current);
+    }
+
+
     
 
     return (
@@ -122,9 +149,11 @@ const ImageForm = ({setRequestType}) => {
 
                 <h1 className="form-titles">Create Image</h1>
 
+
+
                 <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
 
-                
+
 
                 <div className="form-buttons">
 
@@ -136,7 +165,7 @@ const ImageForm = ({setRequestType}) => {
 
                 <div className="form-buttons">
 
-                    <button className="form-button button-style change-form-button" type="button" onClick={() => setRequestType(current => !current)}>ask question</button>
+                    <button className="form-button button-style change-form-button" type="button" onClick={changeForm}>ask question</button>
                 
                 </div>
 
@@ -151,7 +180,7 @@ const ImageForm = ({setRequestType}) => {
                         
                     </div>
             
-                    <img className="returned-image" src={answer.payload} alt="image failed to generate"/>
+                    <img className="returned-image" src={answer.payload? answer.payload : storedImage} alt="image failed to generate"/>
 
                 </div>
                 
@@ -162,7 +191,7 @@ const ImageForm = ({setRequestType}) => {
 
             </form>
             
-              {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={url ? url : {}}></EmailForm>}
+              {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={url ? url : storedImage}></EmailForm>}
 
         </div>
     )
