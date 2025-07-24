@@ -21,12 +21,21 @@ const InputForm = ({setRequestType}) => {
 
     useEffect (() => {
 
-        const storedData = localStorage.getItem('answer');
+        const storedAnswer = localStorage.getItem('answer');
 
-        if(storedData){
+        const storedQuestion = localStorage.getItem('question');
 
-            setText(storedData);
+        if(storedAnswer){
+
+            setText(storedAnswer);
         };
+
+        if(storedQuestion){
+
+            setQuestion1(storedQuestion);
+        };
+        
+
 
     }, []);
     
@@ -76,6 +85,7 @@ const InputForm = ({setRequestType}) => {
 
 
     const clearForm = () => {
+        console.log(question1, text);
 
         setAnswer({
 
@@ -86,7 +96,7 @@ const InputForm = ({setRequestType}) => {
 
         setQuestion1('');
 
-        setText('');
+        setText({});
 
         localStorage.clear();
     };
@@ -99,6 +109,11 @@ const InputForm = ({setRequestType}) => {
         if(data) {
 
             localStorage.setItem('answer', data);
+        };
+
+        if(question1) {
+
+            localStorage.setItem('question', question1);
         };
 
         setRequestType(current => !current);
@@ -155,7 +170,7 @@ const InputForm = ({setRequestType}) => {
 
             </form>
 
-            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer ? answer.payload : {}}></EmailForm>}
+            {emailVisibility && <EmailForm emailVisibility={setEmailVisibility} answer={answer ? answer.payload : text}></EmailForm>}
 
         </div>
 

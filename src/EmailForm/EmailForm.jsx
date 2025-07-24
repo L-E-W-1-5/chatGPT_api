@@ -90,7 +90,8 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     const pasteAnswer = () => {
 
-        if(Object.keys(answer).length){
+        // if(Object.keys(answer).length){
+        if(answer){
 
             setInputs(values => ({...values, ["text"]: `${inputs["text"] ? inputs["text"] : ""}${answer}`}));
 
