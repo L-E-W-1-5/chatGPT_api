@@ -53,9 +53,9 @@
     transition: 0.7s;
 }
 
-.show-hide-button:active {
+/* .show-hide-button:active {
     transform: scale(.9);
-}
+} */
 
 .image-buttons{
     position: fixed;
@@ -106,6 +106,7 @@
     max-width: 100%;
     max-height: 100%;
     z-index: 100;
+    text-align: center;
 }
 
 @media only screen and (max-height: 600px) {

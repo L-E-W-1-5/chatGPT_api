@@ -211,7 +211,7 @@ const ImageForm = ({setRequestType}) => {
                         
                         </div>
             
-                        <img className="returned-image" src={answer?.payload ? answer.payload : storedImage} alt="image failed to generate"/>
+                        <img className="returned-image" src={answer?.payload ? answer.payload : storedImage} alt="Image Timed Out."/>
 
                     </div>
                     )

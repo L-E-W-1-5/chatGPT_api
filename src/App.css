@@ -64,8 +64,8 @@
     display: flex;
     position: relative;
     margin: auto;
-    width: 60%;
-    height: 80%;
+    width: 95%;
+    height: 87%;
     background-image: url(./assets/background_feather.jpg);
     background-size: cover;
     background-repeat: no-repeat;
@@ -81,11 +81,11 @@
 }
 
 
-@media only screen and (max-width: 800px){
+/* @media only screen and (max-width: 800px){
     .form-container{
         width: 80%;
     }
-}
+} */
 
 
 
