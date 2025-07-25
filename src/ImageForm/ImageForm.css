@@ -109,6 +109,23 @@
     text-align: center;
 }
 
+.stop-fetch-button{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+    border: 2px solid white;
+    background: red;
+    color: white;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
 @media only screen and (max-height: 600px) {
 
     .returned-image{   

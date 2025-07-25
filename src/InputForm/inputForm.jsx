@@ -8,7 +8,7 @@ import { LoadingDots } from '../LoadingDots/LoadingDots.jsx';
 
 const InputForm = ({setRequestType}) => {
 
-    const { answer, setAnswer, setQuestion, loading } = UseFetch({}); 
+    const { answer, setAnswer, setQuestion, loading, handleStop } = UseFetch({}); 
 
     const [emailVisibility, setEmailVisibility] = useState();
 
@@ -134,11 +134,17 @@ const InputForm = ({setRequestType}) => {
 
         <div className="form-container">
 
-           {loading &&
-                <div className="loading-container">
-                    <LoadingDots></LoadingDots>
-                </div>
-           }
+           {loading &&           
+
+                    <div className="loading-container">
+
+                        <LoadingDots></LoadingDots>
+
+                        <button className="stop-fetch-button" onClick={handleStop}>stop</button>
+
+                    </div>
+                                                 
+            }
                 
 
             <form className="form-layout" onSubmit={handleSubmit}>

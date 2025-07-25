@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 
 //Production
@@ -14,9 +14,11 @@ export function UseFetch ()  {
                   
     const [answer, setAnswer] = useState();
 
-    const [question, setQuestion] = useState({});   //TODO: change this to request, setRequest
+    const [question, setQuestion] = useState({});   
 
     const [loading, setLoading] = useState(false);
+
+    const abortControllerRef = useRef(null);
   
 
     useEffect(() => {
@@ -27,7 +29,13 @@ export function UseFetch ()  {
 
                 setLoading(true);
 
+                const controller = new AbortController();
+
+                abortControllerRef.current = controller;
+
                 const response = await fetch(`${url}/${question.endpoint}`, { 
+
+                    signal: controller.signal,
 
                     method: "POST",
 
@@ -56,24 +64,52 @@ export function UseFetch ()  {
 
             }catch (err){
 
-                console.error('network parsing error', err);
+                if(err.name === 'AbortError'){
 
-                alert('an unexpected error occured', err);
+                    console.log('fetch aborted')
+                    
+                    alert('Aborted');
+
+                }else{
+
+                    console.error('network parsing error', err);
+
+                    alert('an unexpected error occured', err);
+                };
 
             }finally {
 
                 setLoading(false);
 
                 setQuestion({});
-            }
-
-          
-        }
+            }  
+        };
 
     
     if (question.endpoint && question.question && question != {}) handleFetch();
+
+    return () => {
+
+        if (abortControllerRef.current) {
+
+            abortControllerRef.current.abort();
+        };
+
+    };
    
-    }, [question] )
+    }, [question] );
+
+
+    const handleStop = () => {
+
+        if(abortControllerRef.current){
+
+            abortControllerRef.current.abort();
+            
+            console.log('cleanup function');
+        };
+
+    };
 
 
     return {
@@ -81,7 +117,8 @@ export function UseFetch ()  {
         answer: answer,
         setAnswer: setAnswer,
         setQuestion: setQuestion,
-        loading: loading
+        loading: loading,
+        handleStop: handleStop
     };
 
 }
