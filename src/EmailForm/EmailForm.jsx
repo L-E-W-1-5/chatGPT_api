@@ -1,6 +1,6 @@
 import './EmailForm.css';
 import { LoadingDots } from '../LoadingDots/LoadingDots';
-import {useState} from 'react';
+import {useState, useRef} from 'react';
 
 
 
@@ -21,6 +21,8 @@ const EmailForm = ({emailVisibility, answer}) => {
 
     const [loading, setLoading] = useState(false);
 
+    const abortControllerRef = useRef(null);
+
 //TODO: Can create an alert box, maybe hidden, to accept a persons own sign in credentials (email, password, provider) and use them to send an email from their own account.
 
     const handleChange = (event) => {
@@ -35,7 +37,6 @@ const EmailForm = ({emailVisibility, answer}) => {
     const sendMail = (event) => {
 
         event.preventDefault();     
-        console.log(inputs);
 
         handleEmailSend();
     }
@@ -44,8 +45,6 @@ const EmailForm = ({emailVisibility, answer}) => {
     const handleEmailSend = async () => {
 
         setLoading(true);
-
-        console.log(inputs)
 
         if(!inputs.subject || !inputs.recipient || !inputs.text) {
 
@@ -56,7 +55,13 @@ const EmailForm = ({emailVisibility, answer}) => {
 
         try{
 
+            const controller = new AbortController();
+
+            abortControllerRef.current = controller;
+
             const res = await fetch(`${url}/email`, {
+
+                signal: controller.signal,
 
                 method: "POST",
 
@@ -79,13 +84,40 @@ const EmailForm = ({emailVisibility, answer}) => {
 
         }catch(err){
 
+            if(err.name === 'AbortError'){
+
+                console.log('fetch aborted');
+
+                alert('Aborted');
+            }
+
             console.log(err);
 
         }finally{
 
             setLoading(false);
         }
-    }
+
+        return () => {
+
+            if (abortControllerRef.current) {
+
+                abortControllerRef.current.abort();
+            };
+
+        };
+    };
+
+
+    const handleStop = () => {
+
+        if(abortControllerRef.current){
+
+            abortControllerRef.current.abort();
+
+            alert('aborted');
+        };
+    };
 
 
     const pasteAnswer = () => {
@@ -112,10 +144,18 @@ const EmailForm = ({emailVisibility, answer}) => {
     return (
         <div className="email-container">
 
-            {loading &&
-                <div className="loading-container">
-                    <LoadingDots></LoadingDots>
-                </div>
+            {loading &&           
+
+                    <div className="loading-container-email">
+
+                        <h3>Thinking..</h3>
+
+                        <LoadingDots></LoadingDots>
+
+                        <button className="stop-fetch-button" onClick={handleStop}>cancel</button>
+
+                    </div>
+                                                 
             }
 
             <h1 className="form-titles">Send Mail</h1>

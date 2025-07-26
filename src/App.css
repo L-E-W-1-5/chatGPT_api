@@ -52,16 +52,39 @@
 .loading-container {
     z-index: 102;
     position: absolute;
-    height: 100%;
-    width: 100%;
+    align-self: center;
+    height: 40%;
+    width: 30%;
     margin: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.286);
+    border-radius: 10%;
+}
+
+.stop-fetch-button{
+    /* position: absolute; */
+    /* top: 60%;
+    left: 50%;
+    transform: translate(-50%, -40%); */
+    margin-bottom: 10px;
+    border-radius: 10%;
+    height: 30px;
+    width: 70px;
+    border: none;
+    background:  rgb(130, 133, 134);
+    color:white;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .form-container {
     display: flex;
+    justify-content: center;
     position: relative;
     margin: auto;
     width: 95%;
@@ -101,6 +124,10 @@
 
     .form-titles{
         font-size: 1.4rem;
+    }
+
+    .loading-container{
+        width: 60%;
     }
 }
 

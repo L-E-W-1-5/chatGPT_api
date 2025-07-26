@@ -163,9 +163,11 @@ const ImageForm = ({setRequestType}) => {
 
                     <div className="loading-container">
 
+                        <h3>Thinking..</h3>
+
                         <LoadingDots></LoadingDots>
 
-                        <button className="stop-fetch-button" onClick={handleStop}>stop</button>
+                        <button className="stop-fetch-button" onClick={handleStop}>cancel</button>
 
                     </div>
                                                  

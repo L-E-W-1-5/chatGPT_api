@@ -1,6 +1,6 @@
 .dots {
     display: flex;
-    margin-top: -5%;
+    margin-top: 15%;
 }
 
 .dot {
@@ -35,5 +35,12 @@
 @keyframes jump {
     100% {
         transform: translateY(-5rem) scale(1.9);
+    }
+}
+
+@media only screen and (max-width: 500px){
+
+    .dots{
+        margin-top: 35%;
     }
 }

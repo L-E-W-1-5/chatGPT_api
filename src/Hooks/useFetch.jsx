@@ -93,6 +93,8 @@ export function UseFetch ()  {
         if (abortControllerRef.current) {
 
             abortControllerRef.current.abort();
+
+            console.log('cleanup function');
         };
 
     };
@@ -105,8 +107,7 @@ export function UseFetch ()  {
         if(abortControllerRef.current){
 
             abortControllerRef.current.abort();
-            
-            console.log('cleanup function');
+             
         };
 
     };
