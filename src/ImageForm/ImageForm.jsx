@@ -120,9 +120,19 @@ const ImageForm = ({setRequestType}) => {
     };
 
 
-    const handleKeyPress = (e) => {
+    const handleKeyPress = (event) => {
 
-        if(e.key === 'Enter') handleFetch();
+        if (event.key === 'Enter'){
+            
+            if(event.shiftKey){
+
+                return;
+
+            }else{
+
+                handleFetch();
+            };
+        };
     };
 
 

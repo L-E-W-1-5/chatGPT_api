@@ -80,7 +80,17 @@ const InputForm = ({setRequestType}) => {
 
     const handleKeyPress = (event) => {
 
-        if (event.key === 'Enter') fetchResources();
+        if (event.key === 'Enter'){
+            
+            if(event.shiftKey){
+
+                return;
+
+            }else{
+
+                fetchResources();
+            };
+        };
     };
 
 

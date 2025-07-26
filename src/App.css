@@ -62,6 +62,7 @@
     flex-direction: column;
     background: rgba(0, 0, 0, 0.286);
     border-radius: 10%;
+    margin-top: -7%;
 }
 
 .stop-fetch-button{
@@ -80,6 +81,7 @@
     font-weight: bold;
     font-size: 1rem;
     text-align: center;
+    
 }
 
 .form-container {
@@ -128,6 +130,7 @@
 
     .loading-container{
         width: 60%;
+        margin-top: -20%;
     }
 }
 
