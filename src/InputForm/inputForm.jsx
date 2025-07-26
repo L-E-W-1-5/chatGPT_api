@@ -81,12 +81,14 @@ const InputForm = ({setRequestType}) => {
     const handleKeyPress = (event) => {
 
         if (event.key === 'Enter'){
-            
+
             if(event.shiftKey){
 
                 return;
 
             }else{
+
+                event.preventDefault();
 
                 fetchResources();
             };
@@ -169,7 +171,7 @@ const InputForm = ({setRequestType}) => {
 
                     <textarea className={maximised ? "maximised textarea" : "answer-text textarea"} readOnly placeholder='answer will appear here...' value={answer ? `${answer.payload}` : text}></textarea>        
            
-                    <textarea className="question-text textarea" disabled={loading} placeholder='ask question here...' onKeyUp={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
+                    <textarea className="question-text textarea" disabled={loading} placeholder='ask question here...' onKeyDown={handleKeyPress} value={question1} onChange={(e) => {setQuestion1(e.target.value)}}></textarea>
                     
                 </div>
 

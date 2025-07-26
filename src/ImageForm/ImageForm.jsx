@@ -130,6 +130,8 @@ const ImageForm = ({setRequestType}) => {
 
             }else{
 
+                event.preventDefault();
+
                 handleFetch();
             };
         };
@@ -137,8 +139,6 @@ const ImageForm = ({setRequestType}) => {
 
 
     const closeImage = () => {
-
-        console.log(showHide, answer?.payload, storedImage);
 
         setShowHide(false);
     }
@@ -193,7 +193,7 @@ const ImageForm = ({setRequestType}) => {
 
                     <button className="show-hide-button" style={{display: !storedImage && !answer?.payload && "none"}} type="button" onClick={() => setShowHide(true)}>show</button>
 
-                    <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyUp={handleKeyPress}></textarea>
+                    <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyDown={handleKeyPress}></textarea>
 
                 </div>
 
