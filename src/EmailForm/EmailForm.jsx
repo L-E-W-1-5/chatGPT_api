@@ -213,14 +213,14 @@ const EmailForm = ({emailVisibility, answer}) => {
                 
                 <div className="email-form-buttons">
 
-                    <button className="email-form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>Paste</button>
-                    <button className="email-form-button button-style" disabled={loading} type="submit">Send</button>
-                    <button className="email-form-button button-style" disabled={loading} type="button" onClick={clearFields}>Clear</button>
+                    <button className="email-form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>paste</button>
+                    <button className="email-form-button button-style" disabled={loading} type="submit">send</button>
+                    <button className="email-form-button button-style" disabled={loading} type="button" onClick={clearFields}>clear</button>
                     
                 </div>
 
                 <div className="email-close-div">
-                    <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>Close</button>
+                    <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>close</button>
                 </div>
 
             </form>
