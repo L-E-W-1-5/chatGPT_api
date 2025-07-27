@@ -23,7 +23,6 @@ const ImageForm = ({setRequestType}) => {
 
     
 
-
     useEffect(() => {
 
         const storedImage = localStorage.getItem('image');
@@ -40,7 +39,7 @@ const ImageForm = ({setRequestType}) => {
             setImageDescription(storedImageDescription);
         };
 
-    }, [])
+    }, []);
 
 
     useEffect(() => {
@@ -50,7 +49,25 @@ const ImageForm = ({setRequestType}) => {
             setShowHide(true);
         }
 
-    }, [answer])
+    }, [answer]);
+
+
+    useEffect(() => {
+
+        const data = answer?.payload;
+
+        if(data){
+
+            localStorage.setItem('image', data);
+        };
+
+        if(imageDescription){
+
+            localStorage.setItem('imageDescription', imageDescription);
+        }
+
+    }, [answer, imageDescription]);
+
 
 
     const handleSubmit = (data) => {
@@ -145,18 +162,6 @@ const ImageForm = ({setRequestType}) => {
 
 
     const changeForm = () => {
-
-        const data = answer?.payload;
-
-        if(data){
-
-            localStorage.setItem('image', data);
-        };
-
-        if(imageDescription){
-
-            localStorage.setItem('imageDescription', imageDescription);
-        }
 
         setRequestType(current => !current);
     }

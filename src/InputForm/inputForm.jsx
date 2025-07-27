@@ -35,23 +35,39 @@ const InputForm = ({setRequestType}) => {
             setQuestion1(storedQuestion);
         };
         
-
-
     }, []);
+
+
+    useEffect(() => {
+
+         const data = answer?.payload;
+
+        if(data) {
+
+            localStorage.setItem('answer', data);
+        };
+
+        if(question1) {
+
+            localStorage.setItem('question', question1);
+        };
+
+    }, [answer, question1])
     
 
-    const handleSubmit = (data) => {
+    const handleSubmit = async(data) => {
 
         data.preventDefault();
 
         if(question1){
-
-            fetchResources();
+            
+            fetchResources()
 
         }else{
 
             alert("No Question Asked")
         };
+
     };
 
 
@@ -97,7 +113,6 @@ const InputForm = ({setRequestType}) => {
 
 
     const clearForm = () => {
-        console.log(question1, text);
 
         setAnswer({
 
@@ -117,18 +132,6 @@ const InputForm = ({setRequestType}) => {
 
 
     const changeForm = () => {
-
-        const data = answer?.payload;
-
-        if(data) {
-
-            localStorage.setItem('answer', data);
-        };
-
-        if(question1) {
-
-            localStorage.setItem('question', question1);
-        };
 
         setRequestType(current => !current);
     };

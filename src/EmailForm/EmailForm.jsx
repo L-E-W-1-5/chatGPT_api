@@ -1,6 +1,6 @@
 import './EmailForm.css';
 import { LoadingDots } from '../LoadingDots/LoadingDots';
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 
 
 
@@ -24,6 +24,39 @@ const EmailForm = ({emailVisibility, answer}) => {
     const abortControllerRef = useRef(null);
 
 //TODO: Can create an alert box, maybe hidden, to accept a persons own sign in credentials (email, password, provider) and use them to send an email from their own account.
+
+
+    useEffect(() => {
+
+        const storedItem = localStorage.getItem('inputs');
+
+        if(storedItem){
+
+            const parsedItem = JSON.parse(storedItem);
+
+            if(parsedItem.recipient){
+                setInputs(values => ({...values, ['recipient']: parsedItem.recipient}))
+            };
+
+            if(parsedItem.text){
+                setInputs(values => ({...values, ['text']: parsedItem.text}))
+            };
+
+            if(parsedItem.subject){
+                setInputs(values => ({...values, ['subject']: parsedItem.subject}))
+            }
+            
+        };
+
+    }, [])
+
+
+    useEffect(() => {
+
+        localStorage.setItem('inputs', JSON.stringify(inputs));
+
+    }, [inputs])
+
 
     const handleChange = (event) => {
 
