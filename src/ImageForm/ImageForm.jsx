@@ -237,7 +237,7 @@ const ImageForm = ({setRequestType}) => {
                         
                         </div>
             
-                        <img className="returned-image" src={undefined} alt="Image Timed Out."/>
+                        <img className="returned-image" src={answer?.payload ? answer.payload : storedImage} alt="Image Timed Out."/>
 
                     </div>
                     )
@@ -245,7 +245,6 @@ const ImageForm = ({setRequestType}) => {
                 })()}
 
               
-{/* answer?.payload ? answer.payload : storedImage */}
 
             </form>
             
