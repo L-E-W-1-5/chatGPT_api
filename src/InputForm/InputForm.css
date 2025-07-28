@@ -139,7 +139,7 @@
         gap: 1px;
     }
 
-     .answer-text {
+    .answer-text {
         /* height: 75%; */
         width: 97%;
         flex-grow: 2;
@@ -167,6 +167,27 @@
         margin: 0%;
         margin-top: 2%;
         margin-bottom: 1%;
+    }
+}
+
+@media only screen and (max-height: 220px){
+
+    .form-layout{
+        justify-content: space-around;
+    }
+
+    .textbox-areas{
+        margin-top: 0%;
+        margin-bottom: 0%;
+    }
+
+     .answer-text {
+        flex-grow: 1;
+        min-height: 1em;
+    }
+
+    .question-text {
+        min-height: 1em;
     }
 }
 

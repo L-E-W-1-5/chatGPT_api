@@ -210,13 +210,13 @@ const ImageForm = ({setRequestType}) => {
 
             <form onSubmit={handleSubmit} className="image-form-layout">
 
-                <h1 className="form-titles">Create Image</h1>
+                <h1 className="form-titles image-title">Create Image</h1>
 
                 <div className="image-prompt-container">
 
                     <button className="show-hide-button" style={{display: !storedImage && !answer?.payload && "none"}} type="button" onClick={() => setShowHide(true)}>show</button>
 
-                    <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} onChange={(e) => {setImageDescription(e.target.value)}} onKeyDown={handleKeyPress}></textarea>
+                    <textarea className="image-prompt-textbox textarea" disabled={loading} value={imageDescription} placeholder="describe an image to be created here.." onChange={(e) => {setImageDescription(e.target.value)}} onKeyDown={handleKeyPress}></textarea>
 
                 </div>
 
