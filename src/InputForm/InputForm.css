@@ -53,7 +53,11 @@
 }
 
 .answer-text::placeholder{
-    color: white;
+    color: rgb(244, 242, 242);
+}
+
+.question-text::placeholder{
+    color: rgb(216, 214, 214);
 }
 
 .maximised{
