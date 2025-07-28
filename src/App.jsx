@@ -2,14 +2,33 @@ import Header from './Header/Header.jsx';
 import InputForm from './InputForm/inputForm.jsx';
 import Footer from './Footer/Footer.jsx';
 import ImageForm from './ImageForm/ImageForm.jsx';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 import './App.css';
 
 function App() {
 
-const [requestType, setRequestType] = useState(true);
+const [requestType, setRequestType] = useState(() => {
+        
+      const savedState = localStorage.getItem('formVisible');
+
+      if(savedState === null){
+
+         return true;
+
+      }else{
+
+        return savedState === 'true';
+      };
+  });
+
+
+useEffect(() => {
+
+  localStorage.setItem('formVisible', requestType);
+
+}, [requestType]);
 
   return (
 

@@ -15,7 +15,18 @@ const ImageForm = ({setRequestType}) => {
 
     const { answer, setAnswer, setQuestion, loading, handleStop } = UseFetch({});
     
-    const [emailVisibility, setEmailVisibility] = useState(false);
+    const [emailVisibility, setEmailVisibility] = useState(() => {
+
+        const savedState = localStorage.getItem('emailForm');
+
+        if(savedState === null){
+
+            return false;
+        }else{
+
+            return savedState === 'true';
+        };
+    });
 
     const [storedImage, setStoredImage] = useState('');
 
@@ -67,6 +78,13 @@ const ImageForm = ({setRequestType}) => {
         }
 
     }, [answer, imageDescription]);
+
+
+    useEffect(() => {
+
+        localStorage.setItem('emailForm', emailVisibility);
+
+    }, [emailVisibility]);
 
 
 

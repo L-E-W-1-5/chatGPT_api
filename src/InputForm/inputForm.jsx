@@ -10,7 +10,18 @@ const InputForm = ({setRequestType}) => {
 
     const { answer, setAnswer, setQuestion, loading, handleStop } = UseFetch({}); 
 
-    const [emailVisibility, setEmailVisibility] = useState();
+    const [emailVisibility, setEmailVisibility] = useState(() => {
+
+        const savedState = localStorage.getItem('emailForm');
+
+        if(savedState === null){
+
+            return false;
+        }else{
+
+            return savedState === 'true';
+        };
+    });
 
     const [question1, setQuestion1] = useState();
 
@@ -52,7 +63,14 @@ const InputForm = ({setRequestType}) => {
             localStorage.setItem('question', question1);
         };
 
-    }, [answer, question1])
+    }, [answer, question1]);
+
+
+    useEffect(() => {
+
+        localStorage.setItem('emailForm', emailVisibility);
+
+    }, [emailVisibility]);
     
 
     const handleSubmit = async(data) => {
