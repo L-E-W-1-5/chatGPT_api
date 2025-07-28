@@ -52,7 +52,9 @@
     cursor: default;
 }
 
-/* rgba(115, 118, 168, 0.714)!important; */
+.answer-text::placeholder{
+    color: white;
+}
 
 .maximised{
     height: 70vh;
