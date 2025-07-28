@@ -1,6 +1,6 @@
 .image-form-layout{
     display: flex;
-    /* justify-content: space-around; */
+    padding-top: 15px;
     align-items: center;
     flex-direction: column;
     width: 100%;
@@ -146,4 +146,8 @@
         top: 45%;
         transform: translate(0, -55%);
     }
+
+    /* .image-form-layout{
+        padding-top: 0;
+    } */
 }
