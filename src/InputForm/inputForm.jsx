@@ -196,19 +196,19 @@ const InputForm = ({setRequestType}) => {
                     
                 </div>
 
-                <div className="form-buttons-test">
+                <div className="form-buttons">
 
                     <button className="form-button button-style" disabled={loading} type="submit">ask</button>
                     <button className="form-button button-style" disabled={loading} type="button" onClick={emailForm}>send</button>
                     <button className="form-button button-style" disabled={loading} type="button" onClick={clearForm}>clear</button>
-                    <button className="form-button button-style" type="button" onClick={changeForm}>image generation</button>
 
                 </div>
 
-                {/* <div className="form-buttons">
+                <div className="form-buttons">
 
+                    <button className="form-button button-style change-form-button" type="button" onClick={changeForm}>image generation</button>
                
-                </div> */}
+                </div>
 
 
             </form>
