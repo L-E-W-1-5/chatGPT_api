@@ -170,15 +170,23 @@
 }
 }
 
+@media only screen and (max-height: 500px){
+
+    .loading-container{
+        justify-content: flex-end;
+        gap: 5%;
+    }
+
+    .loading-title{
+        display: none;
+    }
+}
+
 @media only screen and (max-height: 350px){
 
     .loading-container{
         min-height: 165px;
         margin-top: auto;
-    }
-
-    .loading-title{
-        display: none;
     }
 }
 

@@ -18,6 +18,15 @@
     gap: 20px;
 }
 
+.form-buttons-test{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 60%;
+    margin: 0 auto;
+}
+
 .form-button {
     height: 100%;
     width: 50%;
