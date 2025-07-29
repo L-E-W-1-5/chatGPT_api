@@ -44,3 +44,28 @@
         margin-top: 27%;
     }
 }
+
+@media only screen and (max-height: 350px){
+
+    .dots{
+        margin-top: 30%;
+    }
+}
+
+@media only screen and (max-height: 350px){
+    @media only screen and (max-width: 620px){
+
+        .dots{
+            margin-top: 42%;
+        }
+    }
+}
+
+@media only screen and (max-height: 350px){
+    @media only screen and (max-width: 235px){
+
+        .dots{
+            margin-top: 63%;
+        }
+    }
+}

@@ -196,7 +196,7 @@ const ImageForm = ({setRequestType}) => {
 
                     <div className="loading-container">
 
-                        <h3>Thinking..</h3>
+                        <h3 className="loading-title">Thinking..</h3>
 
                         <LoadingDots></LoadingDots>
 

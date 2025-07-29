@@ -175,13 +175,15 @@ const EmailForm = ({emailVisibility, answer}) => {
 
 
     return (
-        <div className="email-container">
+        <div className="absolute-container">
+        <div className="form-container email-container">
+        
 
             {loading &&           
 
-                    <div className="loading-container-email">
+                    <div className="loading-container">
 
-                        <h3>Thinking..</h3>
+                        <h3 className="loading-title">Thinking..</h3>
 
                         <LoadingDots></LoadingDots>
 
@@ -191,9 +193,11 @@ const EmailForm = ({emailVisibility, answer}) => {
                                                  
             }
 
-            <h1 className="form-titles">Send Mail</h1>
+            
 
             <form className="email-form" onSubmit={sendMail}>
+
+                <h1 className="form-titles email-title">Send Mail</h1>
 
                 <div className="email-form-item">
 
@@ -211,16 +215,16 @@ const EmailForm = ({emailVisibility, answer}) => {
                 
                 <textarea className="textarea email-textarea" disabled={loading} name="text" value={inputs["text"] ? inputs["text"] : ""} onChange={handleChange}></textarea>
                 
-                <div className="email-form-buttons">
+                <div className="form-buttons email-form-buttons">
 
-                    <button className="email-form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>paste</button>
-                    <button className="email-form-button button-style" disabled={loading} type="submit">send</button>
-                    <button className="email-form-button button-style" disabled={loading} type="button" onClick={clearFields}>clear</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={pasteAnswer}>paste</button>
+                    <button className="form-button button-style" disabled={loading} type="submit">send</button>
+                    <button className="form-button button-style" disabled={loading} type="button" onClick={clearFields}>clear</button>
                     
                 </div>
 
                 <div className="email-close-div">
-                    <button className="email-form-close button-style" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>close</button>
+                    <button className="form-button button-style change-form-button email-form-close" disabled={loading} type="button" onClick={() => {emailVisibility(false)}}>close</button>
                 </div>
 
             </form>
@@ -229,6 +233,7 @@ const EmailForm = ({emailVisibility, answer}) => {
 
             </div>
 
+        </div>
         </div>
     )
 }
