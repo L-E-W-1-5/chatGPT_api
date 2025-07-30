@@ -173,21 +173,30 @@
 @media only screen and (max-height: 500px){
 
     .loading-container{
-        justify-content: flex-end;
+        justify-content: space-between;
         gap: 5%;
+        height: 60%;
     }
 
-    .loading-title{
-        display: none;
+    .dots{
+        margin-top: 30%!important;  
     }
+
+    
 }
 
 @media only screen and (max-height: 350px){
 
     .loading-container{
+        justify-content: flex-end!important;
         min-height: 165px;
         margin-top: auto;
     }
+
+    .loading-title{
+        display: none;
+    }
+
 }
 
 @media only screen and (max-width: 260px){
