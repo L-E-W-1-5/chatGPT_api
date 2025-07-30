@@ -183,7 +183,7 @@ const EmailForm = ({emailVisibility, answer}) => {
 
                     <div className="loading-container">
 
-                        <h3 className="loading-title">Thinking..</h3>
+                        <h3 className="loading-title">Sending..</h3>
 
                         <LoadingDots></LoadingDots>
 
