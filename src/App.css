@@ -170,7 +170,7 @@
 }
 }
 
-@media only screen and (max-height: 500px){
+@media only screen and (max-height: 550px){
 
     .loading-container{
         justify-content: space-between;
@@ -181,9 +181,8 @@
     .dots{
         margin-top: 30%!important;  
     }
-
-    
 }
+
 
 @media only screen and (max-height: 350px){
 
@@ -203,6 +202,14 @@
 
     .loading-container{
         min-width: 90cqw;
-        min-height: 175px;
+        min-height: 50%;
     }
 }
+
+/* @media only scree and (max-height: 700px){
+    @media only screen and (max-width: 350px){
+        .loading-container{
+            height: 60%;
+        }
+    }
+} */
