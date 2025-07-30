@@ -178,13 +178,13 @@
         height: 60%;
     }
 
-    .dots{
+    /* .dots{
         margin-top: 30%!important;  
-    }
+    } */
 }
 
 
-@media only screen and (max-height: 350px){
+@media only screen and (max-height: 300px){
 
     .loading-container{
         justify-content: flex-end!important;
@@ -192,9 +192,9 @@
         margin-top: auto;
     }
 
-    /* .loading-title{
+    .loading-title{
         display: none;
-    } */
+    }
 
 }
 

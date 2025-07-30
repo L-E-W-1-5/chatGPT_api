@@ -167,7 +167,7 @@ const InputForm = ({setRequestType}) => {
 
         <div className="form-container">
 
-           {!loading &&           
+           {loading &&           
 
                     <div className="loading-container">
 
