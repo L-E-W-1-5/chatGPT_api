@@ -106,9 +106,9 @@ const EmailForm = ({emailVisibility, answer}) => {
 
             .then(res => res.json())
 
-            .then(res => res.success === false ? alert("res.payload") : alert("Email Sent!"))
+            .then(res => res.success === false ? alert(res.payload) : alert("Email Sent!"))
 
-            .then(res => alert(res))
+            .then(res => console.log(res))
 
             .catch(err => console.log(err))
 
